@@ -9,7 +9,7 @@ declare var $:any;
 })
 export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestroy{
 
-  @Input() IdItemArr:Array<any>=[];
+  @Input() IdItemArr:Array<any>=[];//接收需要监听的 id 以及title
 
   IdOffsetTop: Array<any> = [];
 

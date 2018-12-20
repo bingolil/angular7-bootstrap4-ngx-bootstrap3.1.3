@@ -1,3 +1,31 @@
-<p>
-  table-extend works!
-</p>
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th *ngFor="let item of columns">{{item.title}}</th>
+			<!-- <th>jj</th>
+			<th>jj</th>
+			<th>jj</th> -->
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>aaa</td>
+			<td>aaa</td>
+			<td>aaa</td>
+		</tr>
+	</tbody>
+</table>
+<div class="clearfix">
+	<span class="float-left mb-3 mr-3" style="line-height:38px;">共有{{total}}条数据</span>
+	<span class="float-right ml-3 mr-3 dropdown" style="position: relative;">
+	    <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown">
+	      {{page.size}}条/页<i style="margin-left:8px;" class="fa fa-angle-down"></i>
+	    </button>
+	    <div class="dropdown-menu">
+	      <a *ngFor="let size of pageSizeList" class="dropdown-item text-center" href="javascript:void(0);" (click)="changePageSize(size.val)">{{size.title}}</a>
+	    </div>
+	</span>
+	<span class="float-right">
+		<pagination (pageChanged)="pageChanged($event)" [itemsPerPage]="page.size" [boundaryLinks]="true" [maxSize]="5" [totalItems]="total" previousText="上一页" nextText="下一页" firstText="首页" lastText="尾页"></pagination>
+	</span>
+</div>
