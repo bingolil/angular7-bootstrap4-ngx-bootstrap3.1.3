@@ -1,0 +1,24 @@
+div.wrapest{
+	background-color: #f1f1f1;
+}
+
+div.wrapest a{
+	display: block;
+	padding: 16px 0;
+	text-decoration:none;
+	color: gray;
+}
+
+.id-active,
+div.wrapest a:hover{
+    color: #5cB85c!important;
+}
+
+.fixed-page-nav{
+    position: fixed;
+    background-color: #333;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
