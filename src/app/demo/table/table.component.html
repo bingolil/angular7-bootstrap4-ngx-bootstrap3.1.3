@@ -3,5 +3,7 @@
 </div>
 <hr>
 <div class="container">
-  <app-table-extend [rows]="dataList" [columns]="rowAttr"></app-table-extend>
+  <app-table-extend [rows]="dataObj" [columns]="colAttr" [isSelect]="true" (event)=changePage($event)>
+  	<!-- <table class="table table-bordered"></table> -->
+  </app-table-extend>
 </div>

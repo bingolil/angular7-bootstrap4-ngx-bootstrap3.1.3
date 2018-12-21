@@ -1,23 +1,24 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-sm">
 	<thead>
 		<tr>
+			<th *ngIf="isSelect" class="text-center" style="width:33px;">
+				<input type="checkbox">
+			</th>
 			<th *ngFor="let item of columns">{{item.title}}</th>
-			<!-- <th>jj</th>
-			<th>jj</th>
-			<th>jj</th> -->
 		</tr>
 	</thead>
-	<tbody>
-		<tr>
-			<td>aaa</td>
-			<td>aaa</td>
-			<td>aaa</td>
+	<tbody *ngIf="rows">
+		<tr *ngFor="let item of rows.data">
+			<td *ngIf="isSelect" class="text-center">
+				<input type="checkbox">
+			</td>
+			<td *ngFor="let key of rowsObj(item)">{{item[key]}}</td>
 		</tr>
 	</tbody>
 </table>
-<div class="clearfix">
-	<span class="float-left mb-3 mr-3" style="line-height:38px;">共有{{total}}条数据</span>
-	<span class="float-right ml-3 mr-3 dropdown" style="position: relative;">
+<div class="clearfix" *ngIf="rows">
+	<span class="float-left mb-3 mr-3" style="line-height:38px;">共有{{rows.total}}条数据</span>
+	<span class="float-right ml-3 mr-3 mb-3 dropdown" style="position: relative;">
 	    <button type="button" class="btn btn-outline-secondary" data-toggle="dropdown">
 	      {{page.size}}条/页<i style="margin-left:8px;" class="fa fa-angle-down"></i>
 	    </button>
@@ -26,6 +27,8 @@
 	    </div>
 	</span>
 	<span class="float-right">
-		<pagination (pageChanged)="pageChanged($event)" [itemsPerPage]="page.size" [boundaryLinks]="true" [maxSize]="5" [totalItems]="total" previousText="上一页" nextText="下一页" firstText="首页" lastText="尾页"></pagination>
+		<pagination (pageChanged)="pageChanged($event)" [(ngModel)]="currentPage" [itemsPerPage]="page.size" [boundaryLinks]="true" [maxSize]="4" [totalItems]="rows.total" previousText="上一页" nextText="下一页" firstText="首页" lastText="尾页"></pagination>
+		<!-- <pager (pageChanged)="pageChanged($event)" [(ngModel)]="currentPage" [itemsPerPage]="page.size" [boundaryLinks]="true" [maxSize]="4" [totalItems]="rows.total" previousText="上一页" nextText="下一页" firstText="首页" lastText="尾页"></pager> -->
 	</span>
 </div>
+<button class="btn btn-sm" (click)="testB()">tste</button>
