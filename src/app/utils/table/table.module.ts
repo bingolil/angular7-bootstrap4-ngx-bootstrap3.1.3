@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 
-import { TableExtendComponent } from './table-extend/table-extend.component';
+import { PageFooterExtendComponent } from './page-footer-extend/page-footer-extend.component';
 
 
 @NgModule({
-  declarations: [TableExtendComponent],
+  declarations: [PageFooterExtendComponent],
   imports: [
     CommonModule,
     FormsModule,
     PaginationModule.forRoot()
   ],
-  exports:[TableExtendComponent]
+  exports:[PageFooterExtendComponent]
 })
 export class TableModule { }

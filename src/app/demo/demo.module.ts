@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { TableComponent } from './table/table.component';
@@ -14,6 +16,8 @@ import { TableModule} from '../utils/table/table.module';
     CommonModule,
     CurrentModule,
     TableModule,
+    FormsModule,
+    PaginationModule.forRoot(),
     DemoRoutingModule
   ]
 })

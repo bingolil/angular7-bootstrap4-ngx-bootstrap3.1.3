@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableExtendComponent } from './table-extend.component';
+import { PageFooterExtendComponent } from './page-footer-extend.component';
 
-describe('TableExtendComponent', () => {
-  let component: TableExtendComponent;
-  let fixture: ComponentFixture<TableExtendComponent>;
+describe('PageFooterExtendComponent', () => {
+  let component: PageFooterExtendComponent;
+  let fixture: ComponentFixture<PageFooterExtendComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableExtendComponent ]
+      declarations: [ PageFooterExtendComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableExtendComponent);
+    fixture = TestBed.createComponent(PageFooterExtendComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
