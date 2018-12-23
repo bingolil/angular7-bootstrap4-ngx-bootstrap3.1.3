@@ -9,9 +9,10 @@ import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
 import { CurrentModule } from '../current/current.module';
 import { TableModule} from '../utils/table/table.module';
+import { TableDescComponent } from './table-desc/table-desc.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent],
   imports: [
     CommonModule,
     CurrentModule,

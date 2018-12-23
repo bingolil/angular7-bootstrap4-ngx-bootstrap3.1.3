@@ -15,7 +15,7 @@ export class PageFooterExtendComponent implements OnInit {
     {val:50,title:'50条/页'}
   ]
 
-  @Input() total=506;
+  @Input() total=50356;
 
   @Input() page={
   	index:0,
@@ -23,6 +23,8 @@ export class PageFooterExtendComponent implements OnInit {
   }
 
   @Input() maxSize=5;
+
+  @Output() event=new EventEmitter();
 
   lastPageNmu:number;
 
@@ -38,16 +40,19 @@ export class PageFooterExtendComponent implements OnInit {
   	if(this.page.size===val) return;
   	this.page.size=val;
   	this.page.index=0;
+    this.event.emit(this.page);
   	this.setPageList();
   }
 
   changePage(val){
   	if(this.page.index==val) return;
   	this.page.index=val;
+     this.event.emit(this.page);
   	this.setPageList();
   }
 
   setPageList(bool?){
+    this.pageFooterNum=[];
   	let num=0;
   	if(this.total%this.page.size>0) num=1;
   	// let cachePageLength=Math.floor(this.total/this.page.size)+num;//总页数
@@ -61,7 +66,7 @@ export class PageFooterExtendComponent implements OnInit {
   }
 
   totalPagemax5(cachelen){ //页数为5页包括5页以下时
-  	this.pageFooterNum=[];
+  	// this.pageFooterNum=[];
   	for(var i=0;i<cachelen;i++){
   		this.pageFooterNum.push(i);
   	}
@@ -69,7 +74,7 @@ export class PageFooterExtendComponent implements OnInit {
 
   totalPagemin6(cachelen){//页数为5页以上时
   	if(this.page.index<3){
-  		this.pageFooterNum=[];
+  		// this.pageFooterNum=[];
 	  	for(var i=0;i<5;i++){
 	  		this.pageFooterNum.push(i);
 	  	}
@@ -81,7 +86,7 @@ export class PageFooterExtendComponent implements OnInit {
   }
 
   middleMax5(num){
-  	this.pageFooterNum=[];
+  	// this.pageFooterNum=[];
   	for(var k=0;k<5;k++){
   		this.pageFooterNum.push(num+k)
   	}

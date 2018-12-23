@@ -14,24 +14,11 @@ export class TableComponent implements OnInit {
   	index:1 //当前为第几页
   }
 
-  pageSizeList=[
-    {val:10,title:'10条/页'},
-    {val:20,title:'20条/页'},
-    {val:30,title:'30条/页'},
-    {val:50,title:'50条/页'}
-  ]
-
-  changePageSize(val){
-   this.page.size=val;
-   this.page.index=1;
+  nowPage={
+    size:10,//展示多少条数据
+    index:1 //当前为第几页
   }
-
-  pageChanged(event):void{
-    this.page.index=event.page;
-    this.getData();
-    // this.pagination.page=event.page;
-    // this.event.emit(this.pagination);
-  }
+   
 
   total=537;
 
@@ -48,6 +35,16 @@ export class TableComponent implements OnInit {
     // console.log("A");
     // this.getData();
   }
+
+  pageChange(event):void{
+    this.nowPage=Object.assign(this.nowPage,event);
+    console.log(this.nowPage);
+    // this.page.index=event.page;
+    // this.getData();
+    // this.pagination.page=event.page;
+    // this.event.emit(this.pagination);
+  }
+
 
   constructor(private mockDataService:MockDataService) { }
 
