@@ -41,10 +41,10 @@ export class MockDataService {
 
   // 后台处理代码
   dealQuery(query){
-    let last=Math.min()
+    // let last=Math.min()
     return {
       total:this.tableData.length,
-      data:this.tableData.slice((query.index-1)*query.size,query.index*query.size)
+      data:this.tableData.slice(query.index*query.size,(query.index+1)*query.size)
     }
   }
 

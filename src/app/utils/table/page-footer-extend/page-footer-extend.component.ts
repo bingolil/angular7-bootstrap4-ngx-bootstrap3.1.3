@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-page-footer-extend',
   templateUrl: './page-footer-extend.component.html',
   styleUrls: ['./page-footer-extend.component.css']
 })
-export class PageFooterExtendComponent implements OnInit {
+export class PageFooterExtendComponent implements OnInit, OnChanges {
 
   
   pageSizeList=[
@@ -36,6 +36,10 @@ export class PageFooterExtendComponent implements OnInit {
   	this.setPageList();
   }
 
+  ngOnChanges(changes: SimpleChanges){
+    // console.log(changes);
+  }
+
   changePageSize(val){
   	if(this.page.size===val) return;
   	this.page.size=val;
@@ -51,7 +55,7 @@ export class PageFooterExtendComponent implements OnInit {
   	this.setPageList();
   }
 
-  setPageList(bool?){
+  setPageList(){
     this.pageFooterNum=[];
   	let num=0;
   	if(this.total%this.page.size>0) num=1;
