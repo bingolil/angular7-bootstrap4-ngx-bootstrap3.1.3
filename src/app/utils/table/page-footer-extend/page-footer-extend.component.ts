@@ -48,8 +48,13 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges){
-    this.page.index=this.index;
-    this.setPageList();
+    if(changes.index && changes.index.currentValue!=0){
+      return;
+    }else{
+      this.page.index=0;
+      this.setPageList();
+    }
+   
   }
 
   changePageSize(val){
@@ -57,14 +62,16 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
   	this.page.size=val;
   	this.page.index=0;
     this.event.emit(this.page);
-  	this.setPageList();
+  	// this.setPageList();
   }
 
   changePage(val){
   	if(this.page.index==val) return;
   	this.page.index=val;
     this.event.emit(this.page);
-  	this.setPageList();
+    if(this.page.index!==0){
+      this.setPageList();
+    }
   }
 
   setPageList(){
@@ -91,9 +98,10 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
   totalPagemin6(cachelen){//页数为5页以上时
   	if(this.page.index<3){
   		// this.pageFooterNum=[];
-	  	for(var i=0;i<5;i++){
-	  		this.pageFooterNum.push(i);
-	  	}
+	  	// for(var i=0;i<5;i++){
+	  	// 	this.pageFooterNum.push(i);
+	  	// }
+      this.pageFooterNum=[0,1,2,3,4];
   	}else if(this.page.index>=3 && this.page.index<=cachelen-3){//当总页数大于5，当前页大于3时
   		this.middleMax5(this.page.index-2)
   	}else{//最后3页时,就使用当前pageFooterNum
@@ -103,9 +111,10 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
 
   middleMax5(num){
   	// this.pageFooterNum=[];
-  	for(var k=0;k<5;k++){
-  		this.pageFooterNum.push(num+k)
-  	}
+  	// for(var k=0;k<5;k++){
+  	// 	this.pageFooterNum.push(num+k)
+  	// }
+    this.pageFooterNum=[num,num+1,num+2,num+3,num+4];
   }
 
 }
