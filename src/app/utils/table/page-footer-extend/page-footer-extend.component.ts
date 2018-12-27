@@ -17,9 +17,18 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
 
   @Input() total=50356;
 
-  @Input() page={
-  	index:0,
-  	size:10
+  @Input() index:number;
+
+  @Input() size:number;
+
+  // @Input() page={
+  // 	index:0,
+  // 	size:10
+  // }
+
+  page={
+    index:0,
+    size:10
   }
 
   @Input() maxSize=5;
@@ -33,11 +42,14 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit() {
+    this.page.index=this.index;
+    this.page.size=this.size;
   	this.setPageList();
   }
 
   ngOnChanges(changes: SimpleChanges){
-    // console.log(changes);
+    this.page.index=this.index;
+    this.setPageList();
   }
 
   changePageSize(val){
@@ -51,7 +63,7 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
   changePage(val){
   	if(this.page.index==val) return;
   	this.page.index=val;
-     this.event.emit(this.page);
+    this.event.emit(this.page);
   	this.setPageList();
   }
 

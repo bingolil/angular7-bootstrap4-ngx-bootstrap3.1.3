@@ -33,6 +33,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<app-page-footer-extend (event)="pageChange($event)" [page]="nowPage" [total]="dataObj.total"></app-page-footer-extend>
+	<app-page-footer-extend (event)="pageChange($event)" [index]="nowPage.index" [size]="nowPage.size" [total]="dataObj.total"></app-page-footer-extend>
 </div>
 <hr>
