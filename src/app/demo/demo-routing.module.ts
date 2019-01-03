@@ -5,20 +5,22 @@ import { TableComponent } from './table/table.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
 import { TableDescComponent } from './table-desc/table-desc.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 const routes: Routes = [
-  {
-  	path:'',component:LayoutComponent,
-  	children:[
-  	  {path:'table',component:TableComponent},
-  	  {path:'table-desc',component:TableDescComponent},
-  	  {path:'rolling-monitor',component:RollingMonitorComponent}
-  	]
-  }
+	{
+		path: '', component: LayoutComponent,
+		children: [
+			{ path: 'table', component: TableComponent },
+			{ path: 'table-desc', component: TableDescComponent },
+			{ path: 'rolling-monitor', component: RollingMonitorComponent },
+			{ path: 'tooltip', component: TooltipComponent }
+		]
+	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule]
 })
 export class DemoRoutingModule { }

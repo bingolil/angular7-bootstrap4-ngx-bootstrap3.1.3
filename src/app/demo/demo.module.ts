@@ -10,9 +10,10 @@ import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.compo
 import { CurrentModule } from '../current/current.module';
 import { TableModule} from '../utils/table/table.module';
 import { TableDescComponent } from './table-desc/table-desc.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent],
   imports: [
     CommonModule,
     CurrentModule,
