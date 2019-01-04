@@ -1,3 +1,60 @@
 <div class="container mt-3">
     <h4>button按钮为disabled时tooltip</h4>
+    <hr>
+    <h5>最基本的演示</h5>
+    <table class="table table-bordered">
+    	<thead>
+    		<tr>
+    			<th>bootstrap</th>
+    			<th>ngx-bootstrap</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td>
+    				<button class="btn btn-sm btn-success" data-toggle="tooltip" title="我是提示内容!">这是按钮</button>
+    				<p class="text-muted small mt-2">描述：纯按钮，tootstrp4自带tooltip</p>
+    			</td>
+    			<td>
+    				<button class="btn btn-sm btn-success" tooltip="我是提示内容!">这是按钮</button>
+    				<p class="text-muted small mt-2">描述：纯按钮，使用ngx-bootstrap中TooltipModule模块的自带tooltip</p>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				<button class="mb-3 btn btn-sm btn-success" (click)="isOpen=!isOpen">添加按钮</button><br>
+    				<button *ngIf="isOpen" class="btn btn-sm btn-success" data-toggle="tooltip" title="我是提示内容!">新加按钮，有tooltip</button>
+    				<p class="text-muted small mt-2">描述：新加按钮有tooltip（bootstrap自带tooltip模式），但是其提示的样式不是bootstrap提供的样式，而是html自带的样式。</p>
+    			</td>
+    			<td>
+    				<button class="mb-3 btn btn-sm btn-success" (click)="isOpen2=!isOpen2">添加按钮</button><br>
+    				<button *ngIf="isOpen2" class="btn btn-sm btn-success" tooltip="我是提示内容!">新加按钮，ngx-tooltip</button>
+    				<p class="text-muted small mt-2">描述：新加按钮有tooltip，该处使用了ngx-bootstrap的提示，其提示的样式是bootstrap提供的样式。</p>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+     <hr>
+    <h5>叙述：</h5>
+    <p >在开发项目时，开发者通常遇到这样一种情况：button按钮在某种情况下不能使用，但需要提醒用户为什么不能使用。当button按钮处在不可用（disabled）时，bootstrap自带的tooltip提示是不成功的。</p>
+    <table class="table table-bordered">
+    	<tbody>
+    		<tr>
+    			<td>
+    				<button class="btn btn-sm btn-success" disabled tooltip="我是提示内容!">button按钮</button>
+    				<p class="text-muted small mt-2">描述：button按钮使用了ngx-bootstrap的tooltip，但是在button为disabled时，提示信息不会显示。</p>
+    			</td>
+    			<td>
+    				<button class="btn btn-sm btn-success text-white" [tooltip]="toolStr">button按钮</button>
+    				<p class="text-muted small mt-2">描述：该处是按钮，但其tooltip内容是组件的一个属性值，即tooltip的可以变化的。</p>
+    			</td>
+    		</tr>
+    		<tr>
+    			<td>
+    				<!-- <a class="btn btn-sm btn-success text-white" [ngClass]="{canUse():'a-disalbed':''}" [tooltip]="toolStr">这是a链接</a>
+    				<p class="text-muted small mt-2">描述：该处看起来是按钮，但是是一个链接，通过样式让你看起来像按钮</p> -->
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
 </div>
