@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { TooltipService } from '../../utils/service/tooltip.service';
+
 @Component({
   selector: 'app-tooltip',
   templateUrl: './tooltip.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TooltipComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tooltipSelf:TooltipService) { }
 
   ngOnInit() {
   }
