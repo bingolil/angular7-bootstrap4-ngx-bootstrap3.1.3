@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
+
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { DemoRoutingModule } from './demo-routing.module';
@@ -20,6 +21,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     TableModule,
     TooltipModule,
     FormsModule,
+    TooltipModule.forRoot(),
     DemoRoutingModule
   ]
 })
