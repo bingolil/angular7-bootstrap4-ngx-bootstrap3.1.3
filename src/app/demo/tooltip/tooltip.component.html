@@ -5,10 +5,29 @@
     <hr>
     <p>需求：button 按钮为 disabled 禁用时，使用 tooltip 提示信息（该信息是按钮为什么被禁用），而且同一个按钮存在不同的禁用情况，需要使用 tooltip 展示不同禁用情况的不同提示信息。</p>
     <hr>
-    <p>分析：</p>
+    <p>资料：因为 button 为 dsiabled 时，tooltip 提示信息是不能显示的。在网上查找了关于该功能实现的方案，其中给的一个解决方案就是在 button 按钮上面覆盖一个容器，该容器无色透明，和按钮一样大小，当按钮为 disabled 时，tooltip 的提示放到该透明容器上，这时 tootip 提示信息成功。</p>
+    <hr>
+    <p>分析：在查找的资料中，添加额外的容器虽然不知道在各个浏览器中会不会影响按钮的点击功能。但是本人不喜欢添加额外的代码，所以尝试其它的方案。将 <span class="text-danger">a链接</span> 添加按钮的样式，在页面中看起来是一个按钮。</p>
     <div class="card">
         <div class="card-body">
             <h6>演示：</h6>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="mt-3">
+                        条件1：
+                    </div>
+                    <div class="mt-3">
+                        条件2：
+                    </div>
+                    <div class="mt-3">
+                        条件3：
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <p class="text-muted">当按钮符合左边的所有条件时，可以使用</p>
+                    <a class="btn btn-sm btn-success text-white" [attr.disabled]="page.con" [tooltip]="getValue()" (click)="consoleValue()">控制台输出 angular7</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
