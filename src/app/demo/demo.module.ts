@@ -12,9 +12,10 @@ import { CurrentModule } from '../current/current.module';
 import { TableModule} from '../utils/table/table.module';
 import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { DropdownHoverComponent } from './dropdown-hover/dropdown-hover.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, DropdownHoverComponent],
   imports: [
     CommonModule,
     CurrentModule,
