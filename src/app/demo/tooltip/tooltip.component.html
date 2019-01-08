@@ -1,33 +1,59 @@
 <div class="container mt-3">
-    <h4>button按钮为disabled时tooltip</h4>
-    <hr>
-    <p>描述：bootstrap4 自带了 tooltip 的提示效果，但其存在一定的缺陷（1，若需要使用 tooltip 的dom是动态的，比如该dom是可以通过 ngIf 来控制其显示和移除，那么 bootstrap4 的提示效果就不起作用；2，若 tooltip 的内容有一定的布局，不只是一句话那么简单，bootstrap4 也实现不了），所以本处采用 ngx-bootstrap 的 TooltipModule 模块来实现 tooltip。</p>
-    <hr>
-    <p>需求：button 按钮为 disabled 禁用时，使用 tooltip 提示信息（该信息是按钮为什么被禁用），而且同一个按钮存在不同的禁用情况，需要使用 tooltip 展示不同禁用情况的不同提示信息。</p>
-    <hr>
-    <p>资料：因为 button 为 dsiabled 时，tooltip 提示信息是不能显示的。在网上查找了关于该功能实现的方案，其中给的一个解决方案就是在 button 按钮上面覆盖一个容器，该容器无色透明，和按钮一样大小，当按钮为 disabled 时，tooltip 的提示放到该透明容器上，这时 tootip 提示信息成功。</p>
-    <hr>
-    <p>分析：在查找的资料中，添加额外的容器虽然不知道在各个浏览器中会不会影响按钮的点击功能。但是本人不喜欢添加额外的代码，所以尝试其它的方案。将 <span class="text-danger">a链接</span> 添加按钮的样式，在页面中看起来是一个按钮。</p>
-    <div class="card">
-        <div class="card-body">
-            <h6>演示：</h6>
-            <div class="row">
-                <div class="col-sm-8">
-                    <div class="mt-3">
-                        条件1：
-                    </div>
-                    <div class="mt-3">
-                        条件2：
-                    </div>
-                    <div class="mt-3">
-                        条件3：
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <p class="text-muted">当按钮符合左边的所有条件时，可以使用</p>
-                    <a class="btn btn-sm btn-success text-white" [attr.disabled]="page.con" [tooltip]="getValue()" (click)="consoleValue()">控制台输出 angular7</a>
-                </div>
+  <h4>button按钮为disabled时tooltip</h4>
+  <hr>
+  <p>描述：bootstrap4 自带了 tooltip 的提示效果，但其存在一定的缺陷（1，若需要使用 tooltip 的dom是动态的，比如该dom是可以通过 ngIf 来控制其显示和移除，那么 bootstrap4 的提示效果就不起作用；2，若 tooltip 的内容有一定的布局，不只是一句话那么简单，bootstrap4 也实现不了），所以本处采用 ngx-bootstrap 的 TooltipModule 模块来实现 tooltip。</p>
+  <hr>
+  <p>需求：button 按钮为 disabled 禁用时，使用 tooltip 提示信息（该信息是按钮为什么被禁用），而且同一个按钮存在不同的禁用情况，需要使用 tooltip 展示不同禁用情况的不同提示信息。</p>
+  <hr>
+  <p>资料：因为 button 为 dsiabled 时，tooltip 提示信息是不能显示的。在网上查找了关于该功能实现的方案，其中给的一个解决方案就是在 button 按钮上面覆盖一个容器，该容器无色透明，和按钮一样大小，当按钮为 disabled 时，tooltip 的提示放到该透明容器上，这时 tootip 提示信息成功。</p>
+  <hr>
+  <p>分析：在查找的资料中，添加额外的容器虽然不知道在各个浏览器中会不会影响按钮的点击功能。而且本人不喜欢添加额外的代码，所以尝试其它的方案。将 <span class="text-danger">a链接</span> 添加按钮的样式，在页面中看起来是一个按钮。</p>
+  <div class="card">
+    <div class="card-body">
+      <h6>演示：</h6>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-5">条件1：A值大于B值</div>
+            <div class="col-sm-7 border-left">
+              <div class="row">
+                <div class="col-sm-5 d-flex">
+                  <label for="A值" class="line31">A：</label>
+                  <input type="number" class="form-control form-control-sm" name="Avalue" [(ngModel)]="page.Avalue"></div>
+                <div class="col-sm-5 offset-sm-2 d-flex">
+                  <label for="A值" class="line31">B：</label>
+                  <input type="number" class="form-control form-control-sm" name="Bvalue" [(ngModel)]="page.Bvalue"></div>
+              </div>
             </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-5">条件2：当前checkbox为选中状态</div>
+            <div class="col-sm-7 border-left">
+              <input type="checkbox" [(ngModel)]="page.iterm2" name="iterm2">
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-5">条件3：当前input框的值需要大于<span class="text-danger">10</span></div>
+            <div class="col-sm-7 border-left">
+              <input type="number" class="form-control form-control-sm" name="iterm3" [(ngModel)]="page.iterm3">
+            </div>
+          </div>
         </div>
+        <div class="col-sm-4">
+          <p class="text-muted">当按钮符合左边的所有条件时，可以使用</p>
+          <a class="btn btn-sm btn-success text-white" [attr.disabled]="!!getValue()" [tooltip]="getValue()" (click)="consoleValue()">控制台输出 angular7</a>
+        </div>
+      </div>
     </div>
+  </div>
+  <hr>
+  <h5>总结：</h5>
+  <p>button 为 disabled 时 tooltio 功能完成，达到预期的效果。实现该功能是由 html css ts service 结合完成。</p>
+  <p><span class="text-danger">重点1：</span>在angular中，a链接 能直接 [disabled]，以为 a链接 没有 disabled 属性，本文中使用的是 [attr.disabled]。</p>
+   <p><span class="text-danger">重点2：</span>对 a链接 存在 disable="true" 属性时，修改相关的样式，本处的样式是由项目的 style.css 样式文件和组件的样式想结合完成。</p>
+   <p><span class="text-danger">重点3：</span>对于 service服务（项目中自定义）的返回值，需要根据不同的值修改 [attr.disabled] 的值，css 自动修改页面样式</p>
+   <p><span class="text-danger">重点4：</span>中心思想是点击当前按钮时，对应的 click 事件还是会发生，但是当不满足条件时，该事件直接就被截断（return），不会往下执行。</p>
 </div>
+<hr>

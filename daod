@@ -1,0 +1,108 @@
+[33mcommit 5ec131db367175820a7a547346b4d7d15cc3ec7b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: zengbin <1952724246@qq.com>
+Date:   Tue Jan 8 19:04:31 2019 +0800
+
+    tooltip准备工作完成
+
+[33mcommit fdea0cb90696b03a19bcffc8d2f370bd3839da13[m
+Merge: b821519 e0b2ca1
+Author: zengbin <1952724236qq.com>
+Date:   Mon Jan 7 23:26:03 2019 +0800
+
+    文件合并
+
+[33mcommit b82151960e2b9875e63e824dfb877b70aa5bc8c0[m
+Author: zengbin <1952724236qq.com>
+Date:   Mon Jan 7 23:22:46 2019 +0800
+
+    tooltip 提示准备工作补充
+
+[33mcommit 60c597fc64f069dfaa92987bbdf2dd204fb1828c[m
+Author: zengbin <1952724236qq.com>
+Date:   Mon Jan 7 23:20:03 2019 +0800
+
+    tooltip 提示完成部分准备工作
+
+[33mcommit e0b2ca197cb38c0d37383c9e2c2bb64f1bf54c9c[m
+Author: zengbin <1952724246@qq.com>
+Date:   Fri Jan 4 18:31:29 2019 +0800
+
+    button disabled tooltip完成部分
+
+[33mcommit 2120ed802980b091f3cd82ac0cffd7d95279fd5a[m
+Author: zengbin <1952724236qq.com>
+Date:   Thu Jan 3 22:16:40 2019 +0800
+
+    准备好 button disalbed tooltip的组件
+
+[33mcommit 162d09a2c3c451253e2b97df2197804c78b3fbe6[m
+Author: zengbin <1952724236qq.com>
+Date:   Thu Jan 3 22:01:24 2019 +0800
+
+    滚动组件和table footer组件样式格式化
+
+[33mcommit db66cb5a72c0be50b15e6c54382984015bc85cc4[m
+Author: zengbin <1952724236qq.com>
+Date:   Thu Dec 27 21:17:42 2018 +0800
+
+    用户端table分页加载数据组件优化完成
+
+[33mcommit 778ad1cd3c0e2fbc4c3388c0877f366caaa7ca0d[m
+Author: zengbin <1952724246@qq.com>
+Date:   Thu Dec 27 19:09:56 2018 +0800
+
+    完成用户端table分页组件（需要优化），将bootstrap4移入到node_modules里面，还有引入bootstrap-slider.js滑动插件
+
+[33mcommit 93baca8674c3275033c6f8dfbb75733a93554385[m
+Author: zengbin <1952724246@qq.com>
+Date:   Mon Dec 24 11:25:44 2018 +0800
+
+    表格分页结尾工作未完成
+
+[33mcommit adee1a9707279f3fd29ce7243635cc7d2017bbf4[m
+Author: zengbin <1952724236qq.com>
+Date:   Sun Dec 23 19:15:52 2018 +0800
+
+    开始对接表格和自定义组件（表格尾部）
+
+[33mcommit 6998651f7ae64d2cd7723f362b195c75e2f1d7b5[m
+Author: zengbin <1952724236qq.com>
+Date:   Sun Dec 23 18:53:37 2018 +0800
+
+    不使用ngx-bootstrap分页模块，自己使用bootstrap实现
+
+[33mcommit 2e45fec55bd73bf4f32df57253ed313b37da15b5[m
+Author: zengbin <1952724246@qq.com>
+Date:   Fri Dec 21 18:33:31 2018 +0800
+
+    table分页部分完成，碰到难点
+
+[33mcommit 071b0dd667ced91496c31b57ba4b6bfee1c5449b[m
+Author: bingolil <33535049+bingolil@users.noreply.github.com>
+Date:   Thu Dec 20 21:41:56 2018 +0800
+
+    Update README.md
+
+[33mcommit 0991f6fdd955bddda24e71fc91ba56ddbb628072[m
+Author: zengbin <1952724246@qq.com>
+Date:   Thu Dec 20 18:10:59 2018 +0800
+
+    引入font Awesome 图标库以及完成表格分页的尾部
+
+[33mcommit 6e9e3e925841d2bf1269f6c275e58372441f1416[m
+Author: zengbin <1952724246@qq.com>
+Date:   Thu Dec 20 15:33:47 2018 +0800
+
+    添加滚动监听组件
+
+[33mcommit 5ed3364abebe9f4fc16fb90acb38d125bfdff9c5[m
+Author: zengbin <1952724246@qq.com>
+Date:   Wed Dec 19 11:45:17 2018 +0800
+
+    使用命令 ng add ngx-bootstrap 加入ngx-bootstrap
+
+[33mcommit dfe0231434b65874820c2d10ed0bfd9d47f56181[m
+Author: zengbin <1952724246@qq.com>
+Date:   Wed Dec 19 11:30:57 2018 +0800
+
+    新建一个angular7项目
