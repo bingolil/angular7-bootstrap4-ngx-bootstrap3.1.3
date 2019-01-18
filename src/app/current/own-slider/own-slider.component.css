@@ -2,14 +2,16 @@
 	opacity: 0.8;
 }
 
+:host /deep/ div.tooltip.tooltip-main{
+	margin-top: -38px;
+}
+
+/*tootip 三角形部分*/
 :host /deep/ .tooltip-arrow{
 	position:absolute;
 	width:0;height:0;
 	border-color:transparent;
 	border-style:solid;
-}
-
-:host /deep/ .tooltip.top .tooltip-arrow{
 	bottom:-5px;
 	left:50%;
 	margin-left:-5px;
@@ -19,6 +21,10 @@
 
 :host /deep/ .slider.slider-horizontal{
 	width:100%;
+}
+
+:host /deep/ .slider.slider-horizontal>div.slider-track{
+	margin-top: -10px;
 }
 
 :host /deep/ .slider.slider-horizontal>div.slider-track .slider-track-high,
@@ -37,10 +43,19 @@
 	opacity: 0.7;
 }
 
-
+/*滑动手柄部分*/
 :host /deep/ .slider.slider-horizontal .slider-handle{
-	width:12px;
+	width:14px;
 	height: 28px;
 	border-radius: 0;
 	margin-left:-6px;
+	top: -4px;
+	padding-top: 2px;
+	padding-left: 1px;
+	background: #0095AC;
+}
+
+:host /deep/ .slider.slider-horizontal .slider-handle:before{
+	content: "lll";
+	color: white;
 }
