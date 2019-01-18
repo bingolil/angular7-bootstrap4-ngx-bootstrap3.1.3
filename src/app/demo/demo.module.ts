@@ -12,9 +12,10 @@ import { CurrentModule } from '../current/current.module';
 import { TableModule} from '../utils/table/table.module';
 import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { BootSliderComponent } from './boot-slider/boot-slider.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent],
   imports: [
     CommonModule,
     CurrentModule,

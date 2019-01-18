@@ -1,0 +1,46 @@
+:host /deep/ div.tooltip.tooltip-main.in{
+	opacity: 0.8;
+}
+
+:host /deep/ .tooltip-arrow{
+	position:absolute;
+	width:0;height:0;
+	border-color:transparent;
+	border-style:solid;
+}
+
+:host /deep/ .tooltip.top .tooltip-arrow{
+	bottom:-5px;
+	left:50%;
+	margin-left:-5px;
+	border-width:5px 5px 0;
+	border-top-color:#000;
+}
+
+:host /deep/ .slider.slider-horizontal{
+	width:100%;
+}
+
+:host /deep/ .slider.slider-horizontal>div.slider-track .slider-track-high,
+:host /deep/ .slider.slider-horizontal>div.slider-track .slider-selection,
+:host /deep/ .slider.slider-horizontal>div.slider-track{
+	height: 20px;
+	border-radius: 0;
+}
+
+:host /deep/ .slider.slider-horizontal div.slider-selection{
+	background: #1A4B5A;
+}
+
+:host /deep/ .slider.slider-horizontal>div.slider-track .slider-track-high{
+	background: #1A4B5A;
+	opacity: 0.7;
+}
+
+
+:host /deep/ .slider.slider-horizontal .slider-handle{
+	width:12px;
+	height: 28px;
+	border-radius: 0;
+	margin-left:-6px;
+}

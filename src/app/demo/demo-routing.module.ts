@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
 import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { BootSliderComponent } from './boot-slider/boot-slider.component';
 
 const routes: Routes = [
 	{
@@ -14,7 +15,8 @@ const routes: Routes = [
 			{ path: 'table', component: TableComponent },
 			{ path: 'table-desc', component: TableDescComponent },
 			{ path: 'rolling-monitor', component: RollingMonitorComponent },
-			{ path: 'tooltip', component: TooltipComponent }
+			{ path: 'tooltip', component: TooltipComponent },
+			{path:'boot-slider',component:BootSliderComponent}
 		]
 	}
 ];
