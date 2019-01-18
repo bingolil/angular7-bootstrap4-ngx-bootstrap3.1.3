@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BootSliderComponent implements OnInit {
 
+  min:number=1;
+  max:number=100;
+  unit:string='天';
+  step:number=1;
+  value:number=1;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getSliderValue(event){
+  	this.value=event;
+  }
+
+  setValue(){
+  	this.value=50;
   }
 
 }
