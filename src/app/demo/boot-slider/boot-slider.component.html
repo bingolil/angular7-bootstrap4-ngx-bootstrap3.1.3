@@ -2,7 +2,7 @@
 	<h4>自定义滑动条</h4>
 	<hr>
 	<h6>当前组件介绍（没有点击滑动效果）：</h6>
-	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前组件名称为 <span class="text-danger">app-own-slider</span>，有4给输入属性，分别 min（最小值，默认为1），max（最大值，默认为10），step（滑动的基值，即一次滑动的最小值），unit（当前滑动的单位，比如 天，Mbps等单位，用用于tooltip展示），1个输出属性 event 事件，其 $event 的值是滑动条的值。</p>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当前组件名称为 <span class="text-danger">app-own-slider</span>，有4给输入属性，分别 min（最小值，默认为1），max（最大值，默认为10），step（滑动的基值，即一次滑动的最小值），unit（当前滑动的单位，比如 天，Mbps等单位，用用于tooltip展示，默认是空字符串），1个输出属性 event 事件，其 $event 的值是滑动条的值。</p>
 	<hr>
 	<button class="btn btn-sm btn-info mb-3" (click)="setValue()">设置值为50</button>
 	<p>当前为：{{value}}{{unit}}</p>

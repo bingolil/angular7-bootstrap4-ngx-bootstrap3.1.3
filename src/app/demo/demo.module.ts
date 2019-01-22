@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { TableComponent } from './table/table.component';
@@ -13,9 +14,11 @@ import { TableModule} from '../utils/table/table.module';
 import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
+import { ModalComponent } from './modal/modal.component';
+import { ModalRefComponent } from './modal-ref/modal-ref.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent, ModalComponent, ModalRefComponent],
   imports: [
     CommonModule,
     CurrentModule,
@@ -23,7 +26,9 @@ import { BootSliderComponent } from './boot-slider/boot-slider.component';
     TooltipModule,
     FormsModule,
     TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     DemoRoutingModule
-  ]
+  ],
+  entryComponents:[ModalRefComponent]
 })
 export class DemoModule { }

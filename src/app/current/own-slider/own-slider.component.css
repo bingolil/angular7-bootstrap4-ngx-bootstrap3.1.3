@@ -21,6 +21,7 @@
 
 :host /deep/ .slider.slider-horizontal{
 	width:100%;
+	
 }
 
 :host /deep/ .slider.slider-horizontal>div.slider-track{
@@ -36,6 +37,8 @@
 
 :host /deep/ .slider.slider-horizontal div.slider-selection{
 	background: #1A4B5A;
+	/* animation-duration:2s;
+    -webkit-animation-duration:2s; */ /* Safari 和 Chrome */
 }
 
 :host /deep/ .slider.slider-horizontal>div.slider-track .slider-track-high{

@@ -25,8 +25,6 @@ export class OwnSliderComponent implements OnInit, OnChanges {
 		  return '当前为: ' + value+' '+this.unit;
 	  }}).on('slideStop', (event) => {
       this.event.emit(event.value);
-    }).on('click',(event)=>{
-      console.log(this.event);
     });
 
 

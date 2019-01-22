@@ -1,0 +1,17 @@
+<div class="container mt-3">
+    <h4>modal弹窗</h4>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <button class="btn btn-sm btn-success" (click)="openModel1(template1)">基本弹框 ngTemplate</button>
+            <ng-template #template1>
+                <div class="container">
+                    <h3 class="pl-3 pt-3 pb-3">最基本弹框</h3>
+                </div>
+            </ng-template>
+        </div>
+        <div class="col-sm-4 text-center">
+            <button class="btn btn-sm btn-success" (click)="openModel2()">modal弹组件</button>
+        </div>
+    </div>
+</div>
