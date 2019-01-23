@@ -10,15 +10,19 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ModalRefComponent implements OnInit {
 
   title: string;
-  content: any[] = [];
+  content: any=null;
+  isCancel:boolean=false;
 
-  constructor(public bsRef:BsModalRef) {
-  }
+  constructor(public bsRef:BsModalRef) {}
  
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   close(){
+    this.isCancel=true;
+    this.bsRef.hide();
+  }
+
+  ok(){
     this.bsRef.hide();
   }
 }
