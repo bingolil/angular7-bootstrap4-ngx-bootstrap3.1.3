@@ -6,6 +6,9 @@
 </div>
 <div class="modal-body">
     <p>内容：{{content}}</p>
+    <p>test:{{test}}</p>
+    <p>当弹框为组件时，修改原组件传给弹框组件的值，原组件的值不会便</p>
+    <button class="btn btn-sm btn-success" (click)="changT()">改变test的值</button>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-secondary mr-2" (click)="close()">取消</button>

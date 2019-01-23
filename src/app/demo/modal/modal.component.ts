@@ -13,7 +13,10 @@ export class ModalComponent implements OnInit {
 
   bsModalRef1: BsModalRef;
   bsModalRef2: BsModalRef;
-  subscription:Subscription;
+  bsModalRef3: BsModalRef;
+  subscription: Subscription;
+
+  test = "AA"
 
   constructor(private modalService: BsModalService) { }
 
@@ -27,18 +30,22 @@ export class ModalComponent implements OnInit {
   openModel2() {
     const initialState = {
       content: 'initiaState内容',
+      test: this.test,
       title: 'Component modal头部'
     }
     this.bsModalRef2 = this.modalService.show(ModalRefComponent, { initialState });
-    this.subscription=this.modalService.onHidden.subscribe((s:string)=>{
-      if(this.bsModalRef2.content.isCancel){// this.bsModalRef2.content  //弹框组件的引用
+    this.subscription = this.modalService.onHidden.subscribe((s: string) => {
+      if (this.bsModalRef2.content.isCancel) {// this.bsModalRef2.content  //弹框组件的引用
         console.log("取消");
-      }else{
+      } else {
         console.log("确定");
       }
       this.subscription.unsubscribe(); //取消当前订阅
     });
+  }
 
+  openModel3(temp: TemplateRef<any>) {
+    this.bsModalRef3=this.modalService.show(temp,Object.assign({},{class:'modal-lg'}))
   }
 
 }

@@ -10,12 +10,17 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ModalRefComponent implements OnInit {
 
   title: string;
+  test:string;
   content: any=null;
   isCancel:boolean=false;
 
   constructor(public bsRef:BsModalRef) {}
  
   ngOnInit() {}
+
+  changT(){
+    this.test="BB";
+  }
 
   close(){
     this.isCancel=true;
