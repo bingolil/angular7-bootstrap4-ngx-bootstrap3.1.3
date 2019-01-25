@@ -6,5 +6,5 @@
 
 a[disabled="true"]{opacity: 0.65;}
 a[disabled="true"]：focus{background: none;}
-a[disabled="true"]:hover{cursor: default;pointer-events: auto;}
+a[disabled="true"]:hover{cursor: default!important;pointer-events: auto;}
 a.btn-success[disabled="true"]:hover{background-color: #28a745;border-color: #28a745 }

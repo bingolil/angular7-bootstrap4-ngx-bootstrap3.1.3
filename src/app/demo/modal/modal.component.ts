@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   bsModalRef3: BsModalRef;
   subscription: Subscription;
 
-  test = "AA"
+  testValue = "在原组件中定义的值"
 
   constructor(private modalService: BsModalService) { }
 
@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit {
   openModel2() {
     const initialState = {
       content: 'initiaState内容',
-      test: this.test,
+      testValue: this.testValue,
       title: 'Component modal头部'
     }
     this.bsModalRef2 = this.modalService.show(ModalRefComponent, { initialState });

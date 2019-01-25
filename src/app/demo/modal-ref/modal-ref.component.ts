@@ -10,7 +10,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class ModalRefComponent implements OnInit {
 
   title: string;
-  test:string;
+  testValue:string;
   content: any=null;
   isCancel:boolean=false;
 
@@ -19,7 +19,7 @@ export class ModalRefComponent implements OnInit {
   ngOnInit() {}
 
   changT(){
-    this.test="BB";
+    this.testValue="在modal中改变的值";
   }
 
   close(){
