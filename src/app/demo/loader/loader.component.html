@@ -1,5 +1,15 @@
 <div class="container mt-3">
 	<h4>loading http拦截UI展示</h4>
 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该处并未涉及到 http 的内容，是纯UI功能的实现。本功能有 service、ngx-bootstrap中的modal、css、html一起完成 </p>
-	<button class="btn btn-sm btn-success" (click)="httpQuest()">展示loding</button>
+	<div class="row">
+		<div class="col-sm-4">
+			<button class="btn btn-sm btn-success" (click)="httpQuest()">展示loding</button>
+		</div>
+		<div class="col-sm-4">
+			<button class="btn btn-sm btn-success" (click)="httpPo1()">http post /api/vm/list</button>
+		</div>
+		<div class="col-sm-4">
+			<button class="btn btn-sm btn-success" (click)="httpPo2()">http post /api/format</button>
+		</div>
+	</div>
 </div>
