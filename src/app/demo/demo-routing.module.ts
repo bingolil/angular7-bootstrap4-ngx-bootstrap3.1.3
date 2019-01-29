@@ -8,6 +8,7 @@ import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
+import { LoaderComponent } from './loader/loader.component';
 
 const routes: Routes = [
 	{
@@ -18,7 +19,8 @@ const routes: Routes = [
 			{ path: 'rolling-monitor', component: RollingMonitorComponent },
 			{ path: 'tooltip', component: TooltipComponent },
 			{path:'boot-slider',component:BootSliderComponent},
-			{path:'modal',component:ModalComponent}
+			{path:'modal',component:ModalComponent},
+			{path:'loader',component:LoaderComponent}
 		]
 	}
 ];

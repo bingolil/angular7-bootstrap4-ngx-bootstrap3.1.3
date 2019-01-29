@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
+import { CurrentModule } from './current/current.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { IndexComponent } from './index/index.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CurrentModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

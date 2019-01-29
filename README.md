@@ -15,5 +15,6 @@
   > * button为disabled时展示tooltip（已完成）
   > * 滑动条（已完成）
   > * modal 弹框实践（已完成）
+  > * http拦截loading的UI（已完成）
  
  

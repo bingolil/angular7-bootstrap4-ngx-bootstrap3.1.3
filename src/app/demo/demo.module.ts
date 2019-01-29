@@ -16,9 +16,10 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalRefComponent } from './modal-ref/modal-ref.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent, ModalComponent, ModalRefComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent, ModalComponent, ModalRefComponent, LoaderComponent],
   imports: [
     CommonModule,
     CurrentModule,
