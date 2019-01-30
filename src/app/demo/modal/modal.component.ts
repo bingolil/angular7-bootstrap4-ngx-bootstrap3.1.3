@@ -1,6 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Subscription } from 'rxjs'
+import { Subscription, combineLatest } from 'rxjs'
 
 import { ModalRefComponent } from '../modal-ref/modal-ref.component';
 
@@ -18,7 +18,7 @@ export class ModalComponent implements OnInit {
 
   testValue = "在原组件中定义的值"
 
-  constructor(private modalService: BsModalService) { }
+  constructor(private modalService: BsModalService, private changeDetection: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
