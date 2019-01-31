@@ -1,86 +1,54 @@
 import { Injectable, ChangeDetectorRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Subscription, combineLatest,ReplaySubject } from 'rxjs';
+import { BsModalService, BsModalRef  } from 'ngx-bootstrap/modal';
+import { Subscription, Observable, Subject } from 'rxjs';
 
 import { LoadingContentComponent } from '../../current/loading-content/loading-content.component';
 
+export class Ref_state {
+  bool:boolean;
+  _bs_Ref:BsModalRef
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoadService {
  
-  public _load_modalRef:BsModalRef;
+  private _load_Ref_Arr:BsModalRef[]=[];  //处理多个http请求
+  private _load_Ref_bool:Boolean[]=[];    //对应是否移除modal_ref
 
-  public count=0;
+  private count=0;
 
-  private _done = new ReplaySubject(1);
+  private _shown$=new Subscription();
+  private _hidden$=new Subscription();
 
-  private _isShown:boolean=false;
-
-  private shownSubscription=new Subscription();
-
-  constructor(private modalService:BsModalService,private http:HttpClient) { }
+  constructor(private modalService:BsModalService) { }
 
   loadStart(content){
-    this.count++;
-
-    // this.shownSubscription=this.modalService.onShown.subscribe(((s:string)=>{ //是否关闭
-    //   console.log('shown',this._load_modalRef,this)
-    //    // this._load_modalRef.hide();
-    //   // if(this.count<=0){
-    //   //   // this.count--;
-    //   //   this._load_modalRef.hide();
-    //   // }
-    //   this.shownSubscription.unsubscribe();
-    //   this._isShown = true;
-
-    // }).bind(this));
-
-    this.modalService.onShown.subscribe((r:string)=>{
-      console.log("AAAAAA");
-      console.log(this._load_modalRef)
+    this._shown$=this.modalService.onShown.subscribe((r:string)=>{
+      setTimeout(()=>{ //请求响应过快，modal_ref没有移除，进行二次移除
+        if(this._load_Ref_bool[this.count]){
+          this._load_Ref_Arr[this.count].hide();
+         }
+      },0)
+      this._shown$.unsubscribe();
     })
 
-    console.log('show staring');
-
-  	this._load_modalRef=this.modalService.show(LoadingContentComponent,{
-  	  backdrop: 'static',
-  	  class:'modal-sm loading-ui-wrap',
-  	  initialState:{
-  	  	basicContent:content
-  	  }
-  	});
-
-    this._done.subscribe(()=>{
-      console.log('done', this._load_modalRef);
-      this._load_modalRef.hide();
-    });
-
-
-    this.modalService.onHidden.subscribe((reason: string) => {
-      // console.log(this._load_modalRef);
-      // this._load_modalRef=null;
-    });
+    this._load_Ref_Arr[this.count]=this.modalService.show(LoadingContentComponent,{
+      backdrop: 'static',
+      animated:false,
+      class:'modal-sm loading-ui-wrap',
+      initialState:{
+        basicContent:content
+      }
+    })
+    this._load_Ref_bool[this.count]=false
+    this.count++;
   }
 
   loadEnd(){
-    console.log('loadEnd', this._load_modalRef);
     this.count--;
-
-    this._done.next(true);
-    this._done.complete();
-
-    // this._load_modalRef.hide();
-    //console.log(this.count);
-
-    // this.modalService.onShown.subscribe(data=>{
-    //   console.log("A");
-    //   this._load_modalRef.hide();
-    // })
+    this._load_Ref_Arr[this.count].hide();
+    this._load_Ref_bool[this.count]=true;
   }
-
-
-  // 存在多个拦截loading UI的情况
 }
