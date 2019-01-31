@@ -1,6 +1,8 @@
 <div class="container mt-3">
 	<h4>loading http拦截UI展示</h4>
-	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;该处并未涉及到 http 的内容，是纯UI功能的实现。本功能有 service、ngx-bootstrap中的modal、css、html一起完成 </p>
+	<p><span class="pl-3 ml-3"></span>该处并未涉及到 http 的内容，是纯UI功能的实现。本功能有 service、ngx-bootstrap中的modal、css、html一起完成 </p>
+	<hr>
+    <p><span class="pl-3 ml-3 text-danger">http拦截器：</span>该http拦截器实现了展示文字，该文字可以自己定义，通过HttpHeaders传到拦截器上，拦截器接收文字后移除文字并克隆当前请求，这样就实现了传送文字在loading UI中展示，并且不会影响http请求</p>
 	<div class="row">
 		<div class="col-sm-4">
 			<button class="btn btn-sm btn-success" (click)="httpQuest()">展示loding</button>
