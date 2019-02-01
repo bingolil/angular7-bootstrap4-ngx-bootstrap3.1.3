@@ -21,11 +21,6 @@ export class PageFooterExtendComponent implements OnInit, OnChanges {
 
   @Input() size:number;
 
-  // @Input() page={
-  // 	index:0,
-  // 	size:10
-  // }
-
   page={
     index:0,
     size:10

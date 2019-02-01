@@ -27,7 +27,6 @@ export class OwnSliderComponent implements OnInit, OnChanges {
       this.event.emit(event.value);
     });
 
-
     this.resetBootSilde();
   }
 
@@ -46,7 +45,4 @@ export class OwnSliderComponent implements OnInit, OnChanges {
     $("#basic-demo").slider('setAttribute', 'step', this.step); //添加滑动的基值
     $("#basic-demo").slider('setValue', this.value); //修改UI位置
   }
-
-
-
 }

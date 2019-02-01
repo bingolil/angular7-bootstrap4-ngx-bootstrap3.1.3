@@ -4,11 +4,6 @@ import { Subscription, Observable, Subject } from 'rxjs';
 
 import { LoadingContentComponent } from '../../current/loading-content/loading-content.component';
 
-export class Ref_state {
-  bool:boolean;
-  _bs_Ref:BsModalRef
-}
-
 @Injectable({
   providedIn: 'root'
 })
@@ -36,7 +31,7 @@ export class LoadService {
 
     this._load_Ref_Arr[this.count]=this.modalService.show(LoadingContentComponent,{
       backdrop: 'static',
-      animated:false,
+      animated:false,  //很重要，关系到shown订阅是否执行成功
       class:'modal-sm loading-ui-wrap',
       initialState:{
         basicContent:content

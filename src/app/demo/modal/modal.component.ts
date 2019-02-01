@@ -36,9 +36,9 @@ export class ModalComponent implements OnInit {
     this.bsModalRef2 = this.modalService.show(ModalRefComponent, { initialState });
     this.subscription = this.modalService.onHidden.subscribe((s: string) => {
       if (this.bsModalRef2.content.isCancel) {// this.bsModalRef2.content  //弹框组件的引用
-        console.log("取消");
-      } else {
         console.log("确定");
+      } else {
+        console.log("取消");
       }
       this.subscription.unsubscribe(); //取消当前订阅
     });

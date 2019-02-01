@@ -23,11 +23,11 @@ export class ModalRefComponent implements OnInit {
   }
 
   close(){
-    this.isCancel=true;
     this.bsRef.hide();
   }
 
   ok(){
+    this.isCancel=true;
     this.bsRef.hide();
   }
 }

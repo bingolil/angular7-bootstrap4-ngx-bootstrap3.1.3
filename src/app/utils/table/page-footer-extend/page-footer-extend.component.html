@@ -9,7 +9,7 @@
 	      <a *ngFor="let size of pageSizeList" class="dropdown-item text-center" href="javascript:void(0);" (click)="changePageSize(size.val)">{{size.title}}</a>
 	    </div>
 	</span>
-	<span class="float-right">
+	<span class="float-right" *ngIf="total>10">
 		<ul class="pagination">
 		  <li class="page-item" [ngClass]="{'disabled':page.index==0}">
 		  	<a class="page-link" href="javascript:void(0)" (click)="changePage(0)">首页</a>
