@@ -15,7 +15,6 @@ export class LoadService {
   private count=0;
 
   private _shown$=new Subscription();
-  private _hidden$=new Subscription();
 
   constructor(private modalService:BsModalService) { }
 

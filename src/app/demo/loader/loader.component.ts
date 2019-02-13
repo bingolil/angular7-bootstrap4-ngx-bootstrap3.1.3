@@ -28,7 +28,7 @@ export class LoaderComponent implements OnInit {
   httpPo1(){
   	let aat=new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'loading':['正在获取服务器列表','获取失败','获取成功']
+      'loading':['正在获取服务器列表','获取成功','获取失败']
     })
 
   	this.http.post('https://localhost:8090/api/vm/list','tttttt',{headers:aat}).subscribe(data=>{
@@ -37,7 +37,7 @@ export class LoaderComponent implements OnInit {
   }
 
   httpPo2(){
-  	this.http.get('/api/format',{headers:new HttpHeaders({'loading':'true'})}).subscribe(data=>{
+  	this.http.get('https://localhost:8090/api/format',{headers:new HttpHeaders({'loading':'true'})}).subscribe(data=>{
   		console.log(data);
   	})
   }
@@ -45,7 +45,7 @@ export class LoaderComponent implements OnInit {
   httpPo3(){
     let aat=new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'loading':['正在获取服务器列表','获取失败','获取成功']
+      'loading':['正在获取服务器列表','获取成功','获取失败']
     })
    this.http.post('https://localhost:8090/api/vm/list','tttttt',{headers:aat}).subscribe(data=>{
       console.log(data);
