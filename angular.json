@@ -25,7 +25,8 @@
                         "styles": [
                             "./node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "./node_modules/bootstrap-slider/dist/css/bootstrap-slider.min.css",
-                            "src/styles.css"
+                            "src/styles.css",
+                            "./node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",

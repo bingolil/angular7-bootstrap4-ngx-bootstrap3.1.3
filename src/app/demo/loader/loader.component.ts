@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 import { LoadService } from '../../utils/service/load.service';
 
@@ -16,7 +17,7 @@ export class LoaderComponent implements OnInit {
   	error:'失败'
   }}
 
-  constructor(private loadService:LoadService,private http:HttpClient) { }
+  constructor(private loadService:LoadService,private http:HttpClient,private toastr:ToastrService) { }
 
   ngOnInit() {
   }
@@ -53,13 +54,12 @@ export class LoaderComponent implements OnInit {
 
    let sss=new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'loading':['=========']
+      'loading':['=========',null,'错误']
     })
 
    this.http.post('https://localhost:8090/api/vm/list','tttttt',{headers:sss}).subscribe(data=>{
       console.log(data);
     })
-
 
   }
 

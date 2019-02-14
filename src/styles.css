@@ -13,3 +13,7 @@ a.btn-success[disabled="true"]:hover{background-color: #28a745;border-color: #28
 .loading-ui-wrap{min-height: calc(100% - (1.75rem * 2));align-items: center;display: flex;max-width: 220px;}
 /*.loading-ui-wrap div.modal-content{opacity: 0.9;}*/
 .loading-ui-wrap div.modal-content{background-color: #f2f2f2;}
+
+/*信息提示*/
+.toast-container{z-index: 1000!important;}
+.toast-container .toast{padding: 10px 0 10px 50px!important;opacity: 0.9;max-width:200px}
