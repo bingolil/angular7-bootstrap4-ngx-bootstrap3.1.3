@@ -5,9 +5,10 @@
 .line31{line-height: 31px;}
 
 a[disabled="true"]{opacity: 0.65;}
-a[disabled="true"]：focus{background: none;}
+a[disabled="true"]:focus{background: none;}
 a[disabled="true"]:hover{cursor: default!important;pointer-events: auto;}
-a.btn-success[disabled="true"]:hover{background-color: #28a745;border-color: #28a745 }
+a.btn-success[disabled="true"]:active,
+a.btn-success[disabled="true"]:hover{background-color:#28a745!important;border-color:#28a745!important;}
 
 /*loading ui 自定义*/ 
 .loading-ui-wrap{min-height: calc(100% - (1.75rem * 2));align-items: center;display: flex;max-width: 220px;}
