@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxEchartsModule } from 'ngx-echarts'
 
 import { DemoRoutingModule } from './demo-routing.module';
 import { TableComponent } from './table/table.component';
@@ -17,14 +18,16 @@ import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
 import { ModalRefComponent } from './modal-ref/modal-ref.component';
 import { LoaderComponent } from './loader/loader.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
-  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent, ModalComponent, ModalRefComponent, LoaderComponent],
+  declarations: [TableComponent, LayoutComponent, RollingMonitorComponent, TableDescComponent, TooltipComponent, BootSliderComponent, ModalComponent, ModalRefComponent, LoaderComponent, ChartComponent],
   imports: [
     CommonModule,
     CurrentModule,
     TableModule,
     TooltipModule,
+    NgxEchartsModule,
     FormsModule,
     TooltipModule.forRoot(),
     ModalModule.forRoot(),

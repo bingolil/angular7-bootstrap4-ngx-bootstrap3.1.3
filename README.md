@@ -6,7 +6,9 @@
  > * [ngx-bootstrap 3.1.3](http://ngx-bootstrap.com/#/)
  > * [lodash 4.17.11](https://www.lodashjs.com)
  > * [font-Awesome图标库](http://fontawesome.dashgame.com/)
- > * [toastr 信息提示插件](https://codeseven.github.io/toastr/)
+ > * [ngx-toastr 9.1.2 信息提示插件](https://codeseven.github.io/toastr/)
+ > * [echarts 4.1.0 图表插件](https://echarts.baidu.com/)
+ > * [ngx-echarts 4.1.0](https://www.npmjs.com/package/ngx-echarts)
 
 
  # 实现的组件
@@ -19,5 +21,6 @@
   > * http拦截loading的UI（已完成）
   > * 优雅的http拦截器（已完成）
   > * http请求完成结果动画（完成）
+  > * angular 中的图表（正在完成中）
  
  

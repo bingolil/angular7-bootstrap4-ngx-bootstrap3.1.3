@@ -17,7 +17,8 @@ export class IndexComponent implements OnInit {
     {url:'/demo/modal',title:'modal 弹框'},
     {url:'/demo/loader',title:'loading http拦截UI展示'},
     {url:'/demo/loader',title:'优雅的http拦截器'},
-    {url:'/demo/loader',title:'http请求结果动画'}
+    {url:'/demo/loader',title:'http请求结果动画'},
+    {url:'/demo/echart',title:'echart图表的使用'}
   ]
 
   constructor() { }

@@ -9,6 +9,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
 import { LoaderComponent } from './loader/loader.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
 	{
@@ -20,7 +21,8 @@ const routes: Routes = [
 			{ path: 'tooltip', component: TooltipComponent },
 			{path:'boot-slider',component:BootSliderComponent},
 			{path:'modal',component:ModalComponent},
-			{path:'loader',component:LoaderComponent}
+			{path:'loader',component:LoaderComponent},
+			{path:'echart',component:ChartComponent}
 		]
 	}
 ];
