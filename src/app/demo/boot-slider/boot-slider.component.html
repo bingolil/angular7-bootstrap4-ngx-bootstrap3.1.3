@@ -9,5 +9,7 @@
 	<button class="btn btn-sm btn-info mb-3" (click)="setValue()">设置值为50</button>
 	<p>当前为：{{value}}{{unit}}</p>
     <app-own-slider (event)="getSliderValue($event)" [min]="min" [max]="max" [step]="step" [value]="value" [unit]="unit"></app-own-slider>
+	<hr>
+	<h4>修改不同路由下页面中title的值</h4>
+	<p><span class="ml-3 pl-3"></span>使用 <span class="text-primary">'@angular/platform-browser'</span> 中 Title 服务，其提过了两个方法，一个为 getTitle() 获取当页面的 title，一个为 setTitle() 设置当前页面的 title</p>
 </div>
-<hr>

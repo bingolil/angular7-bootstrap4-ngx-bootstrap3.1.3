@@ -3,8 +3,8 @@
 	<div class="row">
 		<div class="col-sm-6 border">
 			<p class="mt-3">情景：<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;滚动监听在 bootstrap3 和 boostrap4 css库里面已经实现了（通过 a 标签的 href="#锚点id" 实现）。<br>
-		    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但是在 Angular 中，使用 bootstrap 框架提供滚动监听是不能实现的（因为 Angular 的路由机制和页面锚点跳转存在冲突）。<br><br>优点：该组件完全考虑了页面的响应式。<br>缺点：由于组件使用了 ngAfterContentChecked 钩子，对于系统的项目的系统有细微的影响。</p>
+			<span class="pl-3 ml-3"></span>滚动监听在 bootstrap3 和 boostrap4 css库里面已经实现了（通过 a 标签的 href="#锚点id" 实现）。<br>
+		    <span class="pl-3 ml-3"></span>但是在 Angular 中，使用 bootstrap 框架提供滚动监听是不能实现的（因为 Angular 的哈希路由机制和页面锚点跳转存在冲突，没有使用哈希路由时，可以使用bootstrap的滚动监听）。<br><br>优点：该组件完全考虑了页面的响应式。<br>缺点：由于组件使用了 ngAfterContentChecked 钩子，对于系统的项目的系统有细微的影响。</p>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-boot-slider',
@@ -13,9 +14,10 @@ export class BootSliderComponent implements OnInit {
   step:number=1;
   value:number=1;
 
-  constructor() { }
+  constructor(private title:Title) { }
 
   ngOnInit() {
+    this.title.setTitle('angular boot-slider自定义样式设计');
   }
 
   getSliderValue(event){
