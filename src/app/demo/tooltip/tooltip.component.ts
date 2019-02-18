@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { TooltipService } from '../../utils/service/tooltip.service';
 
@@ -24,9 +25,10 @@ export class TooltipComponent implements OnInit {
     term3:'条件三中input框的值需要大于10'
   }
 
-  constructor(private tooltipSelf:TooltipService) { }
+  constructor(private tooltipSelf:TooltipService,private title:Title) { }
 
   ngOnInit() {
+    this.title.setTitle('angular button disabled tooltip的展示');
   }
 
   consoleValue(){
