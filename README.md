@@ -21,6 +21,6 @@
   > * http拦截loading的UI（已完成）
   > * 优雅的http拦截器（已完成）
   > * http请求完成结果动画（完成）
-  > * angular 中的图表（正在完成中）
+  > * angular 中的图表（正常展示）
  
  

@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
+import { reduce } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-chart',
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+    selector: 'app-chart',
+    templateUrl: './chart.component.html',
+    styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
-  chartOption = {
-        title: {
+    chartOption = {
+        // 背景颜色设置
+        backgroundColor: 'white', //默认白色，支持rgb(255,255,255)，#fff写法
+
+        title: { //标题
+            x:'left',            //x轴方向的位置，可以为 right，center
+            y:'top',             //y轴方向的位置，可以为 center，bottom
             text: '堆叠区域图'
         },
-        tooltip : {
+        tooltip: {
             trigger: 'axis'
         },
         legend: {
@@ -33,45 +39,45 @@ export class ChartComponent implements OnInit {
             bottom: '3%',
             containLabel: true
         },
-        xAxis : [
+        xAxis: [
             {
-                type : 'category',
-                boundaryGap : false,
-                data : ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+                type: 'category',
+                boundaryGap: false,
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
             }
         ],
-        yAxis : [
+        yAxis: [
             {
-                type : 'value'
+                type: 'value'
             }
         ],
-        series : [
+        series: [
             {
                 name: '邮件营销',
                 type: 'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: { normal: {} },
                 data: [120, 132, 101, 134, 90, 230, 210]
             },
             {
                 name: '联盟广告',
                 type: 'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: { normal: {} },
                 data: [220, 182, 191, 234, 290, 330, 310]
             },
             {
                 name: '视频广告',
                 type: 'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: { normal: {} },
                 data: [150, 232, 201, 154, 190, 330, 410]
             },
             {
                 name: '直接访问',
                 type: 'line',
                 stack: '总量',
-                areaStyle: {normal: {}},
+                areaStyle: { normal: {} },
                 data: [320, 332, 301, 334, 390, 330, 320]
             },
             {
@@ -84,7 +90,7 @@ export class ChartComponent implements OnInit {
                         position: 'top'
                     }
                 },
-                areaStyle: {normal: {}},
+                areaStyle: { normal: {} },
                 data: [820, 932, 901, 934, 1290, 1330, 1320]
             }
         ]
