@@ -11,7 +11,10 @@ a.btn-success[disabled="true"]:active,
 a.btn-success[disabled="true"]:hover{background-color:#28a745!important;border-color:#28a745!important;}
 
 /*loading ui 自定义*/ 
-.loading-ui-wrap{min-height: calc(100% - (1.75rem * 2));align-items: center;display: flex;max-width: 220px;}
+/*在ie浏览器下不垂直居中*/
+/*.loading-ui-wrap{min-height: calc(100% - (1.75rem * 2));align-items: center;display: flex;max-width: 220px;}*/
+.loading-ui-wrap{min-height: calc(100% - (1.75rem * 2));position:relative;max-width: 220px;}
+.loading-ui-wrap>div.modal-content{position: absolute;top: 50%;margin-top: -20px;}
 /*.loading-ui-wrap div.modal-content{opacity: 0.9;}*/
 .loading-ui-wrap div.modal-content{background-color: #f2f2f2;}
 
