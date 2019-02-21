@@ -5,9 +5,10 @@ import { AllPageRoutingModule } from './all-page-routing.module';
 import { ConsoleMenuComponent } from './console-menu/console-menu.component';
 import { CurrentModule } from '../current/current.module';
 import { Error404Component } from './error404/error404.component';
+import { BeginUiComponent } from './begin-ui/begin-ui.component';
 
 @NgModule({
-  declarations: [ConsoleMenuComponent, Error404Component],
+  declarations: [ConsoleMenuComponent, Error404Component, BeginUiComponent],
   imports: [
     CommonModule,
     CurrentModule,
