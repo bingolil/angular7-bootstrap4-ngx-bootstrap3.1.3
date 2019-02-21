@@ -43,7 +43,7 @@
         </div>
         <div class="col-sm-4">
           <p class="text-muted">当按钮符合左边的所有条件时，可以使用</p>
-          <a class="btn btn-sm btn-success text-white" [attr.disabled]="!!getValue()" [tooltip]="getValue()" (click)="consoleValue()">控制台输出 angular7</a>
+          <a class="btn btn-sm btn-success text-white" [attr.forbidden]="!!getValue()" [tooltip]="getValue()" (click)="consoleValue()">控制台输出 angular7</a>
         </div>
       </div>
     </div>
@@ -51,9 +51,10 @@
   <hr>
   <h5>总结：</h5>
   <p>button 为 disabled 时 tooltio 功能完成，达到预期的效果。实现该功能是由 html css ts service 结合完成。</p>
-  <p><span class="text-danger">重点1：</span>在angular中，a链接不能直接 [disabled]（DOM属性），因为 a链接 没有 disabled 属性，本文中使用的是 [attr.disabled]。</p>
-   <p><span class="text-danger">重点2：</span>对 a链接 存在 disable="true" 属性时，修改相关的样式，本处的样式是由项目的 style.css 样式文件和组件的样式想结合完成。</p>
-   <p><span class="text-danger">重点3：</span>对于 service服务（项目中自定义）的返回值，需要根据不同的值修改 [attr.disabled] 的值，css 自动修改页面样式</p>
+  <p><span class="text-danger">重点1：</span>在angular中，a链接不能直接 [disabled]（DOM属性），因为 a链接 没有 disabled 属性，本文中使用的是 [attr.forbidden]（atrr.disabled对ie有影响）。</p>
+   <p><span class="text-danger">重点2：</span>对 a链接 存在 forbidden="true" 属性时，修改相关的样式，本处的样式是由项目的 style.css 样式文件和组件的样式想结合完成。</p>
+   <p><span class="text-danger">重点3：</span>对于 service服务（项目中自定义）的返回值，需要根据不同的值修改 [attr.forbidden] 的值，css 自动修改页面样式</p>
    <p><span class="text-danger">重点4：</span>中心思想是点击当前按钮时，对应的 click 事件还是会发生，但是当不满足条件时，该事件直接就被截断（return），不会往下执行。</p>
 </div>
 <hr>
+

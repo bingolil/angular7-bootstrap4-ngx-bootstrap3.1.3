@@ -1,8 +1,10 @@
 <my-console-menu></my-console-menu>
 <div class="main-route main-default">
 	<div style="padding:8px;height: 1000px;">
+		<a routerLink="/">首页</a>
+		<hr>
 		<h4>固定折叠侧边栏</h4>
 		<hr>
-		<p><span class="ml-3 pl-3">缺陷：</span>当在侧边栏设置 <span class="text-danger">overflow-y:auto</span> 时，收起所有折叠后，在条目上 <span class="text-danger">hover</span> 时，ul 里面的条目展示不出来；设置该 css 属性时，侧边栏条目又有可能超出浏览器的屏高，滚动不了，看不了其它条目。</p>
+		<p><span class="ml-3 pl-3">情景：</span>侧边栏可以整个收起，当收起时，不能再浏览 a 链接，侧边栏链接部分做了滚动，以防所有链接的高度超出容器的高度，滚动条已经隐藏（包括ie，Firefox，Chrome）</p>
 	</div>
 </div>

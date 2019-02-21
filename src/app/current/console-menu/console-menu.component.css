@@ -6,10 +6,12 @@ a{text-decoration:none;}
     display: none;
 }
 
-/*div.console-nav{overflow-y: auto;overflow-x:hidden;}*/
 div.console-nav{font:14px "微软雅黑","宋体","Arial Narrow",HELVETICA;-webkit-text-size-adjust:100%;}
 div.console-nav{width: 220px;height: 100%;background: #263238;transition: all .3s; position: fixed;}
 div.console-nav a{display: block;overflow: hidden;padding-left: 20px;line-height: 46px;max-height: 46px;color: #ABB1B7;transition: all .3s;}
+
+div.console-nav div.nav-top{position: absolute;width:100%;}
+div.console-nav ul.nav-link-menu{height:calc(100% - 61px);margin-top:61px;overflow-y: auto;overflow-x:hidden;-ms-overflow-style:none;overflow:-moz-scrollbars-none;}
 
 div.console-nav .nav-item>a:before{content: "";position: absolute;left: 0px;width: 2px;height: 46px;background: #34A0CE;opacity:0;transition: all .3s;}
 
@@ -37,7 +39,5 @@ div.console-nav .nav-item>a:hover:before{opacity:1;}
 .nav-mini.console-nav{width: 60px;}
 .nav-mini.console-nav .nav-item>a span{display: none;}
 .nav-mini.console-nav .my-fa-more{margin-right: -20px;}
-.nav-mini.console-nav .nav-item ul{position: absolute;top:0px;left:60px;width: 180px;z-index: 99;background:#3C474C;overflow: hidden;}
-.nav-mini.console-nav .nav-item:hover ul{display: block;}
-.nav-mini.console-nav .nav-item:hover a:before{opacity:1;}
+
 

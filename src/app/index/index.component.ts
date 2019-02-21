@@ -20,7 +20,8 @@ export class IndexComponent implements OnInit {
     {url:'/demo/loader',title:'优雅的http拦截器'},
     {url:'/demo/loader',title:'http请求结果动画'},
     {url:'/demo/echart',title:'echart图表的使用'},
-    {url:'/all-page/console-menu',title:'固定侧边折叠导航栏'}
+    {url:'/all-page/console-menu',title:'固定侧边折叠导航栏'},
+    {url:'/all-page/error404',title:'没有路由，404错误'}
   ]
 
   constructor() { }
