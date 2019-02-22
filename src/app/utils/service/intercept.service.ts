@@ -31,14 +31,18 @@ export class InterceptService implements HttpInterceptor {
   	return next.handle(_clone_req).pipe(mergeMap((event:any)=>{
       if(event instanceof HttpResponse){
         this.loadService.loadEnd();
-        if(_loading_content[1]) this.toastrService.success(_loading_content[1]);
+        if(_loading_content[1]) this.toastrService.success(_loading_content[1],null,{
+          timeOut: 3000,
+          closeButton: false,
+          positionClass: "toast-top-right"
+        });
       }
       return of(event)
   	}),catchError((res:HttpResponse<any>):Observable<any>=>{
       this.loadService.loadEnd();
       if(_loading_content[2]){
         this.toastrService.error(_loading_content[2],null,{
-          timeOut: 5000,
+          timeOut: 3000,
           closeButton: false,
           positionClass: "toast-top-right"
         })

@@ -29,6 +29,11 @@ export class ConsoleMenuComponent implements OnInit {
             $(this).next('ul').slideUp(300);
             $('.nav-item.nav-show').removeClass('nav-show');
           }
+        }else{
+          $('div.main-route').removeClass('main-zdmenu').addClass('main-default');
+          $('.console-nav').removeClass('nav-mini');
+          $(this).next('ul').slideDown(300);
+          $(this).parent('li').addClass('nav-show').siblings('li').removeClass('nav-show');
         }
       });
 
