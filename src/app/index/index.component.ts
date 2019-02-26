@@ -21,8 +21,9 @@ export class IndexComponent implements OnInit {
     {url:'/demo/loader',title:'http请求结果动画'},
     {url:'/demo/echart',title:'echart图表的使用'},
     {url:'/all-page/console-menu',title:'固定侧边折叠导航栏'},
-    {url:'/all-page/error404',title:'没有路由，404错误'},
-    {url:'all-page/begin-ui',title:'angular 项目开始前的UI'}
+    {url:'/all-page/error404',title:'好看的 404 错误页'},
+    {url:'all-page/begin-ui',title:'angular 项目开始前的UI'},
+    {url:'all-page/low-ie9-ui',title:'好看的提示ie9升级浏览器页面'},
   ]
 
   constructor() { }
