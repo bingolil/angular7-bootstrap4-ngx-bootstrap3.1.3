@@ -31,9 +31,9 @@ export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestro
   dealScroll(){
     let offsetTop = $(window).scrollTop();//页面顶部位置
     if (offsetTop > $('.scroll-wrapest').offset().top) { //页面顶部位置是否大于滚动导航位置
-      $('div.wrap').addClass('fixed-page-nav');
+      $('div.scroll-wrapest div.wrap').addClass('fixed-page-nav');
     } else {
-      $('div.wrap').removeClass('fixed-page-nav');
+      $('div.scroll-wrapest div.wrap').removeClass('fixed-page-nav');
     }
 
     if (this.IdOffsetTop.length) {
@@ -42,12 +42,12 @@ export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestro
   }
 
   ngAfterContentChecked() { //容器位置top是可以变化，因为在页面会有容器的隐藏和显示
-    $('.scroll-wrapest').height($('div.wrap').height());//响应式存在时，重新设置组件的高度，去除滚动到组件时闪烁影响
+    $('.scroll-wrapest').height($('div.scroll-wrapest div.wrap').height());//响应式存在时，重新设置组件的高度，去除滚动到组件时闪烁影响
     this.IdOffsetTop = []; //清除前一次数据
     this.IdItemArr.forEach((ele) => {
       if ($('#' + ele.id).length === 1) {
       	//做容错处理，即没有该id时
-        this.IdOffsetTop.push({ off: $('#' + ele.id).offset().top - $('div.wrap').height() - 5, id: ele.id })
+        this.IdOffsetTop.push({ off: $('#' + ele.id).offset().top - $('div.scroll-wrapest div.wrap').height() - 5, id: ele.id })
       } else {
         // console.log('滚动监听出错，滚动id锚点不存在或同名存在多个！！！')
       }
