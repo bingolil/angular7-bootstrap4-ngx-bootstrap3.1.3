@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy, AfterContentChecked } from '@angular/core';
-
+import { fromEvent, Subscription } from 'rxjs';
 declare var $:any;
 
 @Component({
@@ -8,6 +8,8 @@ declare var $:any;
   styleUrls: ['./own-scroll.component.css']
 })
 export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestroy{
+
+  subscription:Subscription
 
   @Input() IdItemArr:Array<any>=[];//接收需要监听的 id 以及title
 
@@ -18,24 +20,29 @@ export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestro
   constructor() { }
 
   ngOnInit() {
+
+    this.subscription=fromEvent(window,'scroll').subscribe((event)=>{
+      this.dealScroll();
+    })
+
     this.scrollId = this.IdItemArr[0].id;
+  }
 
-    window.onscroll = () => { //需要滚动监听
-      let offsetTop = $(window).scrollTop();//页面顶部位置
-      if (offsetTop > $('.wrapest').offset().top) { //页面顶部位置是否大于滚动导航位置
-        $('div.wrap').addClass('fixed-page-nav');
-      } else {
-        $('div.wrap').removeClass('fixed-page-nav');
-      }
+  dealScroll(){
+    let offsetTop = $(window).scrollTop();//页面顶部位置
+    if (offsetTop > $('.scroll-wrapest').offset().top) { //页面顶部位置是否大于滚动导航位置
+      $('div.wrap').addClass('fixed-page-nav');
+    } else {
+      $('div.wrap').removeClass('fixed-page-nav');
+    }
 
-      if (this.IdOffsetTop.length) {
-        this.changeId(offsetTop)
-      }
+    if (this.IdOffsetTop.length) {
+      this.changeId(offsetTop)
     }
   }
 
   ngAfterContentChecked() { //容器位置top是可以变化，因为在页面会有容器的隐藏和显示
-    $('.wrapest').height($('div.wrap').height());//响应式存在时，重新设置组件的高度，去除滚动到组件时闪烁影响
+    $('.scroll-wrapest').height($('div.wrap').height());//响应式存在时，重新设置组件的高度，去除滚动到组件时闪烁影响
     this.IdOffsetTop = []; //清除前一次数据
     this.IdItemArr.forEach((ele) => {
       if ($('#' + ele.id).length === 1) {
@@ -48,9 +55,7 @@ export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestro
   }
 
    ngOnDestroy(): void {//需要移除滚动监听事件
-    window.onscroll=()=>{
-      return;
-    }
+    this.subscription.unsubscribe();
   }
 
   changeId(offsetTop) { //自动化设置页面锚点位置
@@ -73,7 +78,7 @@ export class OwnScrollComponent implements OnInit, AfterContentChecked, OnDestro
   goToId(pid):boolean{
   	if ($('#' + pid).length !== 1) return false;//页面不存在该锚点
     $("html, body").animate({
-      scrollTop: $("#" + pid).offset().top - $('.wrapest').height() 
+      scrollTop: $("#" + pid).offset().top - $('.scroll-wrapest').height() 
       //兼容响应式时，容器高度是变化的
     }, { duration: 200, easing: "swing" });
     return false;
