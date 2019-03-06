@@ -7,9 +7,10 @@ import { CurrentModule } from '../current/current.module';
 import { Error404Component } from './error404/error404.component';
 import { BeginUiComponent } from './begin-ui/begin-ui.component';
 import { LowIe9Component } from './low-ie9/low-ie9.component';
+import { RouteLoadingComponent } from './route-loading/route-loading.component';
 
 @NgModule({
-  declarations: [ConsoleMenuComponent, Error404Component, BeginUiComponent, LowIe9Component],
+  declarations: [ConsoleMenuComponent, Error404Component, BeginUiComponent, LowIe9Component, RouteLoadingComponent],
   imports: [
     CommonModule,
     CurrentModule,

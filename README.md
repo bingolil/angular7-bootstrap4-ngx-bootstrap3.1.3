@@ -9,6 +9,8 @@
  > * [ngx-toastr 9.1.2 信息提示插件](https://codeseven.github.io/toastr/)
  > * [echarts 4.1.0 图表插件](https://echarts.baidu.com/)
  > * [ngx-echarts 4.1.0](https://www.npmjs.com/package/ngx-echarts)
+ > * [@ngx-progressbar/core 5.3.2](http://npm.taobao.org/package/ngx-progressbar-rj)
+ > * [@ngx-progressbar/router 5.3.2](http://npm.taobao.org/package/ngx-progressbar-rj)
 
 
  # 实现的组件
@@ -30,4 +32,10 @@
   > * 好看的提示ie9升级浏览器页面（未完成）
   > * table 中 checkbox 全选解决方案（未完成）
  
+ # 运行项目
  
+ > 先觉条件，本地电脑中存在 git，node.js，angualr/cli 环境
+
+ 1. 使用 git 克隆该项目，命令为 git clone git@github.com:bingolil/angular7-ngx-bootstrap.git
+ 2. 在 cmd 环境下进入项目地址，运行命令 npm install 下载项目依赖
+ 3. 运行命令 ng serve，最后在浏览器中打开本地4200端口
