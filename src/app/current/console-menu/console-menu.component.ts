@@ -12,7 +12,7 @@ export class ConsoleMenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  	this.do_console_menu();
+    this.do_console_menu();
   }
 
   do_console_menu(){
@@ -52,5 +52,4 @@ export class ConsoleMenuComponent implements OnInit {
       });
   	});
   }
-
 }
