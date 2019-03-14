@@ -9,6 +9,7 @@ export class MockDataService {
   sex:string;
   age:number;
   like:string
+  id:number
 
   constructor() { 
   	for(var i=0;i<657;i++){
@@ -28,7 +29,8 @@ export class MockDataService {
   			name:i+' 号',
   			sex:this.sex,
   			age:i*10/2+10,
-  			like:this.like
+  			like:this.like,
+        id:i
   		})
   	}
   }

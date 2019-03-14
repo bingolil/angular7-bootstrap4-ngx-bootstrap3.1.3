@@ -8,7 +8,8 @@
 </div>
 <hr>
 <div class="container">
-    <button type="button" class="btn btn-success" (click)="search()">搜索数据重置表格</button>
+    <button type="button" class="btn btn-success btn-sm mr-3" (click)="search()">搜索数据重置表格</button>
+    <button type="button" class="btn btn-info btn-sm" (click)="getCheckIds()">获取被多选数据id</button>
 </div>
 <hr>
 <div class="container">
@@ -16,7 +17,7 @@
 		<thead>
 			<tr>
 				<th  class="text-center" style="width:33px;">
-					<input type="checkbox">
+					<input type="checkbox" [checked]="isAllChecked()" (change)="toggleAll($event)">
 				</th>
 				<th *ngFor="let item of colAttr">{{item.title}}</th>
 			</tr>
@@ -24,7 +25,7 @@
 		<tbody>
 			<tr *ngFor="let item of dataObj.data">
 				<td class="text-center">
-					<input type="checkbox">
+					<input type="checkbox" [(ngModel)]="checkedData[item.id]">
 				</td>
 				<td>{{item.name}}</td>
 				<td>{{item.sex}}</td>

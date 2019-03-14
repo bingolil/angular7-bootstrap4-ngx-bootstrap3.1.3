@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 
 import { MockDataService } from '../../mock-data.service';
 
@@ -26,7 +27,7 @@ export class TableComponent implements OnInit {
   constructor(private mockDataService:MockDataService) { }
 
   ngOnInit() {
-  	this.dataObj=this.mockDataService.getMockdata(this.nowPage);
+  	this.getData();
   }
 
   getData(){
@@ -41,6 +42,22 @@ export class TableComponent implements OnInit {
   pageChange(event){
     this.nowPage=Object.assign(this.nowPage,event);
     this.getData();
+  }
+
+
+  // 做全选======
+  checkedData={};
+  toggleAll(event){
+    _.forEach(this.dataObj.data,(item)=>{this.checkedData[item.id]=event.target.checked});
+  }
+
+  isAllChecked(){ //数据是否全选
+    return !!this.dataObj.data && this.dataObj.data.length>0 && _.reduce(this.dataObj.data,(result,item)=>{return result && !!this.checkedData[item.id]},true)
+  }
+
+  getCheckIds():Array<any>{
+    console.log(_.map(_.keys(_.pickBy(this.checkedData,v=>v)),_.parseInt))
+    return _.map(_.keys(_.pickBy(this.checkedData,v=>v)),_.parseInt);
   }
 
 }
