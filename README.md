@@ -2,7 +2,7 @@
  
  > * [Angular7](https://www.angular.cn/docs)
  > * [bootstrap4](https://v4.bootcss.com/)
-> *  [bootstrap-slider 10.6.0](https://seiyria.com/bootstrap-slider/)
+ > * [bootstrap-slider 10.6.0](https://seiyria.com/bootstrap-slider/)
  > * [ngx-bootstrap 3.1.3](http://ngx-bootstrap.com/#/)
  > * [lodash 4.17.11](https://www.lodashjs.com)
  > * [font-Awesome图标库](http://fontawesome.dashgame.com/)
