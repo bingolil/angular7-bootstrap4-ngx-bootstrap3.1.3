@@ -24,7 +24,6 @@ export class IndexComponent implements OnInit {
     {url:'/all-page/console-menu',title:'固定侧边折叠导航栏'},
     {url:'/all-page/error404',title:'好看的 404 错误页'},
     {url:'/all-page/begin-ui',title:'angular 项目开始前的UI'},
-    {url:'/all-page/low-ie9-ui',title:'好看的提示ie9升级浏览器页面'},
     {url:'/all-page/route-loading',title:'路由跳转进度条（页面跳转可见）'}
   ]
 
