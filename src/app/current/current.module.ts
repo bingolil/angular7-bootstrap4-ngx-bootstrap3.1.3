@@ -6,11 +6,11 @@ import { LoadingContentComponent } from './loading-content/loading-content.compo
 import { ConsoleMenuComponent } from './console-menu/console-menu.component';
 
 @NgModule({
-  declarations: [OwnScrollComponent, OwnSliderComponent,LoadingContentComponent, ConsoleMenuComponent],
+  declarations: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, ConsoleMenuComponent],
   imports: [
     CommonModule
   ],
-  exports:[OwnScrollComponent, OwnSliderComponent, LoadingContentComponent,ConsoleMenuComponent],
-  entryComponents:[LoadingContentComponent]
+  exports: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, ConsoleMenuComponent],
+  entryComponents: [LoadingContentComponent]
 })
 export class CurrentModule { }

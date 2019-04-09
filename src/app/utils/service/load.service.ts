@@ -1,5 +1,5 @@
 import { Injectable, ChangeDetectorRef } from '@angular/core';
-import { BsModalService, BsModalRef  } from 'ngx-bootstrap/modal';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription, Observable, Subject } from 'rxjs';
 
 import { LoadingContentComponent } from '../../current/loading-content/loading-content.component';
@@ -8,41 +8,41 @@ import { LoadingContentComponent } from '../../current/loading-content/loading-c
   providedIn: 'root'
 })
 export class LoadService {
- 
-  private _load_Ref_Arr:BsModalRef[]=[];  //处理多个http请求
-  private _load_Ref_bool:Boolean[]=[];    //对应是否移除modal_ref
 
-  private count=0;
+  private _load_Ref_Arr: BsModalRef[] = [];  // 处理多个http请求
+  private _load_Ref_bool: Boolean[] = [];    // 对应是否移除modal_ref
 
-  private _shown$=new Subscription();
+  private count = 0;
 
-  constructor(private modalService:BsModalService) { }
+  private _shown$ = new Subscription();
 
-  loadStart(content){
-    this._shown$=this.modalService.onShown.subscribe((r:string)=>{
-      setTimeout(()=>{ //请求响应过快，modal_ref没有移除，进行二次移除
-        if(this._load_Ref_bool[this.count]){
+  constructor(private modalService: BsModalService) { }
+
+  loadStart(content) {
+    this._shown$ = this.modalService.onShown.subscribe((r: string) => {
+      setTimeout(() => { // 请求响应过快，modal_ref没有移除，进行二次移除
+        if (this._load_Ref_bool[this.count]) {
           this._load_Ref_Arr[this.count].hide();
-         }
-      },0)
+        }
+      }, 0);
       this._shown$.unsubscribe();
-    })
+    });
 
-    this._load_Ref_Arr[this.count]=this.modalService.show(LoadingContentComponent,{
+    this._load_Ref_Arr[this.count] = this.modalService.show(LoadingContentComponent, {
       backdrop: 'static',
-      animated:false,  //很重要，关系到shown订阅是否执行成功
-      class:'modal-sm loading-ui-wrap',
-      initialState:{
-        basicContent:content
+      animated: false,  // 很重要，关系到shown订阅是否执行成功
+      class: 'modal-sm loading-ui-wrap',
+      initialState: {
+        basicContent: content
       }
-    })
-    this._load_Ref_bool[this.count]=false
+    });
+    this._load_Ref_bool[this.count] = false;
     this.count++;
   }
 
-  loadEnd(){
+  loadEnd() {
     this.count--;
     this._load_Ref_Arr[this.count].hide();
-    this._load_Ref_bool[this.count]=true;
+    this._load_Ref_bool[this.count] = true;
   }
 }

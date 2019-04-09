@@ -8,24 +8,25 @@ import { Title } from '@angular/platform-browser';
 })
 export class BootSliderComponent implements OnInit {
 
-  min:number=1;
-  max:number=100;
-  unit:string='天';
-  step:number=1;
-  value:number=1;
+  min = 1;
+  max = 100;
+  unit = '天';
+  step = 1;
+  value = 1;
 
-  constructor(private title:Title) { }
+  constructor(private title: Title) {
+  }
 
   ngOnInit() {
     this.title.setTitle('angular boot-slider自定义样式设计');
   }
 
-  getSliderValue(event){
-  	this.value=event;
+  getSliderValue(event) {
+    this.value = event;
   }
 
-  setValue(){
-  	this.value=50;
+  setValue() {
+    this.value = 50;
   }
 
 }

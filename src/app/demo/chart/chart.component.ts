@@ -8,18 +8,12 @@ import { reduce } from 'rxjs/operators';
 })
 export class ChartComponent implements OnInit {
 
-    constructor() { }
-
-    ngOnInit() {
-    }
-
     chartOption = {
         // 背景颜色设置
-        backgroundColor: 'white', //默认白色，支持rgb(255,255,255)，#fff写法
-
-        title: { //标题
-            x:'left',            //x轴方向的位置，可以为 right，center
-            y:'top',             //y轴方向的位置，可以为 center，bottom
+        backgroundColor: 'white', // 默认白色，支持rgb(255,255,255)，#fff写法
+        title: { // 标题
+            x: 'left',            // x轴方向的位置，可以为 right，center
+            y: 'top',             // y轴方向的位置，可以为 center，bottom
             text: '堆叠区域图'
         },
         tooltip: {
@@ -94,6 +88,10 @@ export class ChartComponent implements OnInit {
                 data: [820, 932, 901, 934, 1290, 1330, 1320]
             }
         ]
-    }
+    };
 
+    constructor() { }
+
+    ngOnInit() {
+    }
 }

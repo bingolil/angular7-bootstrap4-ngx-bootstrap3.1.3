@@ -13,6 +13,6 @@ import { PageFooterExtendComponent } from './page-footer-extend/page-footer-exte
     FormsModule,
     PaginationModule.forRoot()
   ],
-  exports:[PageFooterExtendComponent]
+  exports: [PageFooterExtendComponent]
 })
 export class TableModule { }

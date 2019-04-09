@@ -9,25 +9,25 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ModalRefComponent implements OnInit {
 
-  title: string;
-  testValue:string;
-  content: any=null;
-  isCancel:boolean=false;
+  title = null;
+  testValue = '';
+  content = null;
+  isCancel = false;
 
-  constructor(public bsRef:BsModalRef) {}
- 
-  ngOnInit() {}
+  constructor(public bsRef: BsModalRef) { }
 
-  changT(){
-    this.testValue="在modal中改变的值";
+  ngOnInit() { }
+
+  changT() {
+    this.testValue = '在modal中改变的值';
   }
 
-  close(){
+  close() {
     this.bsRef.hide();
   }
 
-  ok(){
-    this.isCancel=true;
+  ok() {
+    this.isCancel = true;
     this.bsRef.hide();
   }
 }

@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LoadingContentComponent implements OnInit {
 
-  @Input() basicContent='正在加载中 . . . .';
+  @Input() basicContent = '正在加载中 . . . .';
 
   constructor() { }
 

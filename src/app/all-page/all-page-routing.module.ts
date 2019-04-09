@@ -7,11 +7,11 @@ import { BeginUiComponent } from './begin-ui/begin-ui.component';
 import { RouteLoadingComponent } from './route-loading/route-loading.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'console-menu',pathMatch:'full'},
-  {path:'console-menu',component:ConsoleMenuComponent},
-  {path:'error404',component:Error404Component},
-  {path:'begin-ui',component:BeginUiComponent},
-  {path:'route-loading',component:RouteLoadingComponent}
+  { path: '', redirectTo: 'console-menu', pathMatch: 'full' },
+  { path: 'console-menu', component: ConsoleMenuComponent },
+  { path: 'error404', component: Error404Component },
+  { path: 'begin-ui', component: BeginUiComponent },
+  { path: 'route-loading', component: RouteLoadingComponent }
 
 ];
 

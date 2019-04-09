@@ -12,23 +12,23 @@ import { LoaderComponent } from './loader/loader.component';
 import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
-	{
-		path: '', component: LayoutComponent,
-		children: [
-			{ path: 'table', component: TableComponent },
-			{ path: 'table-desc', component: TableDescComponent },
-			{ path: 'rolling-monitor', component: RollingMonitorComponent },
-			{ path: 'tooltip', component: TooltipComponent },
-			{path:'boot-slider',component:BootSliderComponent},
-			{path:'modal',component:ModalComponent},
-			{path:'loader',component:LoaderComponent},
-			{path:'echart',component:ChartComponent}
-		]
-	}
+  {
+    path: '', component: LayoutComponent,
+    children: [
+      { path: 'table', component: TableComponent },
+      { path: 'table-desc', component: TableDescComponent },
+      { path: 'rolling-monitor', component: RollingMonitorComponent },
+      { path: 'tooltip', component: TooltipComponent },
+      { path: 'boot-slider', component: BootSliderComponent },
+      { path: 'modal', component: ModalComponent },
+      { path: 'loader', component: LoaderComponent },
+      { path: 'echart', component: ChartComponent }
+    ]
+  }
 ];
 
 @NgModule({
-	imports: [RouterModule.forChild(routes)],
-	exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class DemoRoutingModule { }
