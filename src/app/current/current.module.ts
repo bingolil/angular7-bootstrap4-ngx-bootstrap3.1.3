@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { OwnScrollComponent } from './own-scroll/own-scroll.component';
 import { OwnSliderComponent } from './own-slider/own-slider.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
-import { ConsoleMenuComponent } from './console-menu/console-menu.component';
 
 @NgModule({
-  declarations: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, ConsoleMenuComponent],
+  declarations: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent ],
   imports: [
     CommonModule
   ],
-  exports: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, ConsoleMenuComponent],
+  exports: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent ],
   entryComponents: [LoadingContentComponent]
 })
 export class CurrentModule { }
