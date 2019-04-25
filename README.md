@@ -30,6 +30,7 @@
   > * 好看的angular 项目开始前UI（已完成）
   > * 页面跳转加载进度条（已完成）
   > * table 中 checkbox 全选解决方案（已完成）
+  > * bootstrap 中 table 固定列的解决方案（已提出）
  
  # 运行项目
  
