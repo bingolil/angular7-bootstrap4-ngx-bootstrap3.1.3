@@ -2,15 +2,16 @@
  
  > * [Angular7](https://www.angular.cn/docs)
  > * [bootstrap4](https://v4.bootcss.com/)
- > * [bootstrap-slider 10.6.0](https://seiyria.com/bootstrap-slider/)
+ > * [bootstrap-slider 10.6.0 滑动条插件](https://seiyria.com/bootstrap-slider/)
  > * [ngx-bootstrap 3.1.3](http://ngx-bootstrap.com/#/)
- > * [lodash 4.17.11](https://www.lodashjs.com)
+ > * [lodash 4.17.11 数据处理插件](https://www.lodashjs.com)
  > * [font-Awesome图标库](http://fontawesome.dashgame.com/)
  > * [ngx-toastr 9.1.2 信息提示插件](https://codeseven.github.io/toastr/)
  > * [echarts 4.1.0 图表插件](https://echarts.baidu.com/)
- > * [ngx-echarts 4.1.0](https://www.npmjs.com/package/ngx-echarts)
- > * [@ngx-progressbar/core 5.3.2](http://npm.taobao.org/package/ngx-progressbar-rj)
+ > * [ngx-echarts 4.1.0 图表插件](https://www.npmjs.com/package/ngx-echarts)
+ > * [@ngx-progressbar/core 5.3.2 加载进度条插件](http://npm.taobao.org/package/ngx-progressbar-rj)
  > * [@ngx-progressbar/router 5.3.2](http://npm.taobao.org/package/ngx-progressbar-rj)
+ > * [ngx-autosize 1.6.0 textarea高度自适应插件](http://npm.taobao.org/package/ngx-autosize)
 
 
  # 实现的组件
@@ -30,6 +31,7 @@
   > * 好看的angular 项目开始前UI（已完成）
   > * 页面跳转加载进度条（已完成）
   > * table 中 checkbox 全选解决方案（已完成）
+  > * text-area 高度自适应（已完成）
   > * bootstrap 中 table 固定列的解决方案（已提出）
  
  # 运行项目
