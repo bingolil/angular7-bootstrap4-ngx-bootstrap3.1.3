@@ -18,6 +18,8 @@ export class BootSliderComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.setItem('key', 'value');
+    console.log(sessionStorage.getItem('key'));
     this.title.setTitle('angular boot-slider自定义样式设计');
   }
 
