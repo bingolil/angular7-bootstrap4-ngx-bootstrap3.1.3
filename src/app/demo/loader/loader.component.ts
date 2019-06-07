@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Title } from '@angular/platform-browser';
 
@@ -26,7 +26,7 @@ export class LoaderComponent implements OnInit {
     this.title.setTitle('angular http拦截UI结果一条龙');
   }
 
-  httpQuest() {
+  showLoading() {
     this.loadService.loadStart('正在操作中 . . . .');
   }
 
@@ -41,27 +41,40 @@ export class LoaderComponent implements OnInit {
     });
   }
 
-  httpPo2() {
-    this.http.get('https://localhost:8090/api/format', { headers: new HttpHeaders({ 'loading': 'true' }) }).subscribe(data => {
+  /** 正常的http请求 */
+  getProduct() {
+    const productHeader = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'loading': ['正在获取产品列表', '获取成功', '获取失败']
+    });
+    this.http.get('http://localhost:3000/product', { headers: productHeader }).subscribe(data => {
       console.log(data);
     });
   }
 
-  httpPo3() {
-    const aat = new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8',
-      'loading': ['正在获取服务器列表', '获取成功', '获取失败']
+  /** 展示默认的http请求 */
+  showModifyHttp() {
+    this.http.get('http://localhost:3000/product', { headers: { loading: 'true' } }).subscribe(data => {
+      console.log(data);
     });
-    this.http.post('https://localhost:8090/api/vm/list', 'tttttt', { headers: aat }).subscribe(data => {
+  }
+
+  /** 发生多给http请求 */
+  happenHttps() {
+    const cartHeader = new HttpHeaders({
+      'Content-Type': 'application/json; charset=utf-8',
+      'loading': ['正在获取产品列表', '获取成功', '获取失败']
+    });
+    this.http.get('http://localhost:3000/product', { headers: cartHeader }).subscribe(data => {
       console.log(data);
     });
 
     const sss = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8',
-      'loading': ['=========', null, '错误']
+      'loading': ['正在获取购物车信息', '获取成功', '获取失败']
     });
 
-    this.http.post('https://localhost:8090/api/vm/list', 'tttttt', { headers: sss }).subscribe(data => {
+    this.http.get('http://localhost:3000/cart', { headers: sss }).subscribe(data => {
       console.log(data);
     });
 

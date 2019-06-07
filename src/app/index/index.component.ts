@@ -31,7 +31,6 @@ export class IndexComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(sessionStorage.getItem('key'));
   }
 
 }

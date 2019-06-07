@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TextareaAutosizeComponent implements OnInit {
 
-  textValue:string;
+  textValue: string;
 
   constructor() { }
 
   ngOnInit() {
-    this.textValue='测试初始值的换行啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊kkk测试初始值的换行啊啊啊啊啊啊啊啊啊a';
+    this.textValue = '测试初始值的换行啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊kkk测试初始值的换行啊啊啊啊啊啊啊啊啊a';
   }
 
 }

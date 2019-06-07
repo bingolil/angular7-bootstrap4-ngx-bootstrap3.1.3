@@ -35,7 +35,7 @@ export class TableComponent implements OnInit {
   getData() {
     this.dataObj = this.mockDataService.getMockdata(this.nowPage);
     /** 请求数据后重置checkedData */
-    this.checkedData={};
+    this.checkedData = {};
   }
 
   search() {
