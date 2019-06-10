@@ -49,7 +49,7 @@ export class InterceptService implements HttpInterceptor {
           positionClass: 'toast-top-right'
         });
       }
-      return of(event);
+      return of(res);
     }));
   }
 
