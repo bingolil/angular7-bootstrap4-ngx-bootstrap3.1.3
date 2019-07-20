@@ -17,7 +17,9 @@ export class InterceptService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const _loading_content = req.headers.getAll('loading'); // getAll返回的是一个数组
     const _basic_content = `正在加载中 . . . .`;
-
+    if (!_loading_content) {
+      return next.handle(req);
+    }
     if (_loading_content[0] !== 'true') { // loading ui 开始
       this.loadService.loadStart(_loading_content[0]);
     } else if (_loading_content[0] === 'true') {
