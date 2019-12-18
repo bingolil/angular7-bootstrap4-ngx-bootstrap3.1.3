@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="container mt-3">
+        <h4>远程加载数据</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">ngx-table</li>
+            <li class="breadcrumb-item"><a routerLink="/demo/table-desc">描述</a></li>
+            <li class="breadcrumb-item"><a routerLink="/demo">演示</a></li>
+        </ol>
+    </div>
+    <hr>
+    <app-ngx-table [pageIndex]="pageIndex" [pageSize]="pageSize" [total]="total" (IndexChange)="searchData($event)" (SizeChange)="searchData($event)" fixLeftNum="2" fixRightNum="2">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>名称</th>
+                <th>种类</th>
+                <th>价格</th>
+                <th>数据</th>
+                <th>描述</th>
+                <th>图片地址aaaaaaaaaaaaaaaaaaaa</th>
+                <th>图片aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa地址</th>
+                <th>图片地址</th>
+                <th>库存</th>
+                <th>适用人群</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dd of demoData">
+                <td>{{dd.id}}</td>
+                <td>{{dd.name}}</td>
+                <td>{{dd.class}}</td>
+                <td>{{dd.price}}</td>
+                <td></td>
+                <td>{{dd.desc}}</td>
+                <td>{{dd.imgUrl}}</td>
+                <td>
+                    {{dd.imgUrl}}
+                </td>
+                <td>{{dd.imgUrl}}</td>
+                <td>{{dd.stock}}</td>
+                <td>{{dd.audience}}</td>
+            </tr>
+        </tbody>
+    </app-ngx-table>
+</div>

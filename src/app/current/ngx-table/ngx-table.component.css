@@ -1,0 +1,29 @@
+div.data-table-wrap {
+    overflow-x: auto;
+    position: relative;
+}
+
+div.overflowYAuto {
+    overflow-y: auto;
+}
+
+table.head-table {
+    table-layout: fixed;
+    position: -webkit-sticky!important;
+    position: sticky!important;
+    z-index: 100;
+    top: 0;
+}
+
+#table-footer-extend div.dropdown-menu.show {
+    min-width: 100% !important;
+}
+
+#table-footer-extend div.dropdown-menu.show a.dropdown-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#table-footer-extend .page-link:focus {
+    box-shadow: none !important;
+}

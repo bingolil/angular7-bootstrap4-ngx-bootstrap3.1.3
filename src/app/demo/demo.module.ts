@@ -19,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
 import { ModalRefComponent } from './modal-ref/modal-ref.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ChartComponent } from './chart/chart.component';
+import { DemoTableComponent } from './demo-table/demo-table.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ChartComponent } from './chart/chart.component';
     ModalComponent,
     ModalRefComponent,
     LoaderComponent,
-    ChartComponent
+    ChartComponent,
+    DemoTableComponent
   ],
   imports: [
     CommonModule,

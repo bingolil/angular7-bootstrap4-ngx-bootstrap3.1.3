@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { OwnScrollComponent } from './own-scroll/own-scroll.component';
 import { OwnSliderComponent } from './own-slider/own-slider.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
+import { NgxTableComponent } from './ngx-table/ngx-table.component';
+import { AngularResizedEventModule } from 'angular-resize-event';
 
 @NgModule({
-  declarations: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent ],
+  declarations: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, NgxTableComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    AngularResizedEventModule
   ],
-  exports: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent ],
+  exports: [OwnScrollComponent, OwnSliderComponent, LoadingContentComponent, NgxTableComponent],
   entryComponents: [LoadingContentComponent]
 })
 export class CurrentModule { }

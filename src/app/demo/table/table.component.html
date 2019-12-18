@@ -1,10 +1,10 @@
 <div class="container mt-3">
     <h4>远程加载数据</h4>
     <ol class="breadcrumb">
-	  <li class="breadcrumb-item"><a routerLink="/">首页</a></li>
-	  <li class="breadcrumb-item"><a routerLink="/demo/table-desc">描述</a></li>
-	  <li class="breadcrumb-item active">演示</li>
-	</ol>
+        <li class="breadcrumb-item"><a routerLink="/demo/demo-table">ngx-table</a></li>
+        <li class="breadcrumb-item"><a routerLink="/demo/table-desc">描述</a></li>
+        <li class="breadcrumb-item active">演示</li>
+    </ol>
 </div>
 <hr>
 <div class="container">
@@ -13,27 +13,27 @@
 </div>
 <hr>
 <div class="container">
-	<table class="table table-bordered table-sm">
-		<thead>
-			<tr>
-				<th  class="text-center" style="width:33px;">
-					<input type="checkbox" [checked]="isAllChecked()" (change)="toggleAll($event)">
-				</th>
-				<th *ngFor="let item of colAttr">{{item.title}}</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr *ngFor="let item of dataObj.data">
-				<td class="text-center">
-					<input type="checkbox" [(ngModel)]="checkedData[item.id]">
-				</td>
-				<td>{{item.name}}</td>
-				<td>{{item.sex}}</td>
-				<td>{{item.age}}</td>
-				<td>{{item.like}}</td>
-			</tr>
-		</tbody>
-	</table>
-	<app-page-footer-extend (event)="pageChange($event)" [index]="nowPage.index" [size]="nowPage.size" [total]="dataObj.total"></app-page-footer-extend>
+    <table class="table table-bordered table-sm">
+        <thead>
+            <tr>
+                <th class="text-center" style="width:33px;">
+                    <input type="checkbox" [checked]="isAllChecked()" (change)="toggleAll($event)">
+                </th>
+                <th *ngFor="let item of colAttr">{{item.title}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dataObj.data">
+                <td class="text-center">
+                    <input type="checkbox" [(ngModel)]="checkedData[item.id]">
+                </td>
+                <td>{{item.name}}</td>
+                <td>{{item.sex}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.like}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <app-page-footer-extend (event)="pageChange($event)" [index]="nowPage.index" [size]="nowPage.size" [total]="dataObj.total"></app-page-footer-extend>
 </div>
 <hr>
