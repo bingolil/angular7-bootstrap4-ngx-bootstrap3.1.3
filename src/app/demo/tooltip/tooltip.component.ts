@@ -25,7 +25,7 @@ export class TooltipComponent implements OnInit {
     term3: '条件三中input框的值需要大于10'
   };
 
-  constructor(private tooltipSelf: TooltipService, private title: Title) { }
+  constructor(private tooltipService: TooltipService, private title: Title) { }
 
   ngOnInit() {
     this.title.setTitle('angular button disabled tooltip的展示');
@@ -39,12 +39,12 @@ export class TooltipComponent implements OnInit {
   }
 
   getValue() {
-    const arr: Array<any> = [
+    const arr: Array<{ bool: boolean, toolText: string }> = [
       { bool: this.page.Bvalue >= this.page.Avalue, toolText: this.tooltipValueArr.term1 },
       { bool: !this.page.iterm2, toolText: this.tooltipValueArr.term2 },
       { bool: this.page.iterm3 <= 10, toolText: this.tooltipValueArr.term3 }
     ];
-    const result = this.tooltipSelf.tooltip(arr);
+    const result = this.tooltipService.tooltip(arr);
     return result;
   }
 

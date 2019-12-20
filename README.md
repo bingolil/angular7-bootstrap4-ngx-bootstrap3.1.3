@@ -12,6 +12,7 @@
  > * [@ngx-progressbar/core 5.3.2 加载进度条插件](http://npm.taobao.org/package/ngx-progressbar-rj)
  > * [@ngx-progressbar/router 5.3.2](http://npm.taobao.org/package/ngx-progressbar-rj)
  > * [ngx-autosize 1.6.0 textarea高度自适应插件](http://npm.taobao.org/package/ngx-autosize)
+ > * [angular-resize 1.1.1 监听容器resize事件](https://www.npmjs.com/package/angular-resize)
 
 
  # 实现的组件
@@ -32,6 +33,7 @@
   > * 页面跳转加载进度条（已完成）
   > * table 中 checkbox 全选解决方案（已完成）
   > * text-area 高度自适应（已完成）
+  > * table 左右固定，固定高度，分页完成
  
  # 运行项目
  

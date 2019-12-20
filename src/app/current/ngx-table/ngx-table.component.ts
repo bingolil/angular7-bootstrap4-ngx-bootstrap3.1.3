@@ -152,14 +152,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     for (let kk = 0; kk < this.fixRightNum; kk++) {
       this.render.addClass(dataThListDom[dataThListDom.length - 1 - kk], 'sticky');
       this.render.setStyle(dataThListDom[dataThListDom.length - 1 - kk], 'right', rightWidthValue + 'px');
-      // this.render.setStyle(cacheEleTheadThList[cacheEleTheadThList.length - 1 - kk], 'z-index', kk + 1);
-
-      // ui调整，初始化时，处理头部右边固定阴影
-      if (kk < this.fixRightNum - 1) {
-        this.render.addClass(dataThListDom[dataThListDom.length - 1 - kk], 'border-right-box-show');
-      } else {
-        this.render.addClass(dataThListDom[dataThListDom.length - 1 - kk], 'right-box-show');
-      }
 
       for (const ele of dataTrListDom) {
         this.render.addClass(ele.children[dataThListDom.length - 1 - kk], 'sticky');
@@ -173,6 +165,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     for (const thEle of dataThListDom) {
       tableTdListWidth.push(thEle.offsetWidth);
     }
+
     // 克隆dataTable的头部DOM
     const cacheTheadNode = this.dataTable.nativeElement.querySelector('thead').cloneNode(true);
 
@@ -185,7 +178,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     const headTableHead = this.headTable.nativeElement.querySelector('thead');
     if (!!headTableHead) {
       this.render.removeChild(this.headTable.nativeElement, headTableHead);
-    }
+    } // 每次都appendChild 因为stick的leift的值可能不一样
     this.render.appendChild(this.headTable.nativeElement, cacheTheadNode);
     // dataTable采用margin-top:-xxx隐藏掉头部，使用theadTable代替头部
     this.render.setStyle(this.dataTable.nativeElement, 'margin-top', -dataThListDom[0].offsetHeight + 'px');
@@ -193,7 +186,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       this.setTableBoxShow();
     }, 0);
   }
-
 
   /**
    * 设置阴影部分
@@ -321,6 +313,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     setTimeout(() => {
       this.setTableUI();
     }, 0);
+    // this.setTableUI();
 
     /**
      * js是单线程的，浏览器内核是多线程的

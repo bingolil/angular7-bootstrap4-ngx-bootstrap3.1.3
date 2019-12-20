@@ -2,6 +2,7 @@
 
 @import'~font-awesome/css/font-awesome.css';
 @import'~assets/css/table.css';
+@import'~assets/css/button.css';
 
 /* @import'~ngx-toastr/toastr-bs4-alert'; */
 
@@ -15,25 +16,6 @@ body {
 
 .line31 {
     line-height: 31px;
-}
-
-a[forbidden="true"] {
-    opacity: 0.65;
-}
-
-a[forbidden="true"]:focus {
-    background: none;
-}
-
-a[forbidden="true"]:hover {
-    cursor: default!important;
-    pointer-events: auto;
-}
-
-a.btn-success[forbidden="true"]:active,
-a.btn-success[forbidden="true"]:hover {
-    background-color: #28a745!important;
-    border-color: #28a745!important;
 }
 
 
