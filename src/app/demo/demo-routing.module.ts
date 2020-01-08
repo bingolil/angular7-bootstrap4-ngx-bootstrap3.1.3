@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
-import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
@@ -15,8 +14,7 @@ const routes: Routes = [
   {
     path: '', component: LayoutComponent,
     children: [
-      { path: 'table-desc', component: TableDescComponent },
-      { path: 'demo-table', component: DemoTableComponent },
+      { path: 'table', component: DemoTableComponent },
       { path: 'rolling-monitor', component: RollingMonitorComponent },
       { path: 'tooltip', component: TooltipComponent },
       { path: 'boot-slider', component: BootSliderComponent },

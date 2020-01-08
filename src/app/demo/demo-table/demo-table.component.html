@@ -1,11 +1,14 @@
-<div class="container">
-    <div class="container mt-3">
-        <h4>远程加载数据</h4>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">ngx-table</li>
-            <li class="breadcrumb-item"><a routerLink="/demo/table-desc">描述</a></li>
-            <li class="breadcrumb-item"><a routerLink="/demo">演示</a></li>
-        </ol>
+<div class="container mt-3">
+    <h4>远程加载数据</h4>
+    <div class="row">
+        <div class="col-sm-6 border">
+            <p class="mt-3">功能：<br>
+                <span class="pl-3 ml-3"></span>显示总数据条数<br>
+                <span class="pl-3 ml-3">页面基本分页</span><br>
+                <span class="pl-3 ml-3">改变页面的数据的条数</span><br>
+                <span class="pl-3 ml-3">搜索数据以分页</span>
+            </p>
+        </div>
     </div>
     <hr>
     <app-ngx-table [pageIndex]="pageIndex" [pageSize]="pageSize" [total]="total" (IndexChange)="searchData($event)" (SizeChange)="searchData($event)" fixLeftNum="2" fixRightNum="2">

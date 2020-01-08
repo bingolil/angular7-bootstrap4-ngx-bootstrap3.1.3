@@ -11,7 +11,6 @@ import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
 import { CurrentModule } from '../current/current.module';
 import { TableModule } from '../utils/table/table.module';
-import { TableDescComponent } from './table-desc/table-desc.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
 import { BootSliderComponent } from './boot-slider/boot-slider.component';
 import { ModalComponent } from './modal/modal.component';
@@ -24,7 +23,6 @@ import { DemoTableComponent } from './demo-table/demo-table.component';
   declarations: [
     LayoutComponent,
     RollingMonitorComponent,
-    TableDescComponent,
     TooltipComponent,
     BootSliderComponent,
     ModalComponent,
