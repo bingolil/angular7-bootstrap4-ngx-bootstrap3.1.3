@@ -12,7 +12,6 @@ export class IndexComponent implements OnInit {
   demoItems = [
     { url: '/demo/rolling-monitor', title: '滚动监听' },
     { url: '/demo/table-desc', title: '表格分页' },
-    { url: '/demo/table', title: '表格中的全选解决方案' },
     { url: '/demo/tooltip', title: 'button disalbed时tooltip' },
     { url: '/demo/boot-slider', title: '滑动条' },
     { url: '/demo/boot-slider', title: '修改不同路由下页面的title的值' },
@@ -22,7 +21,6 @@ export class IndexComponent implements OnInit {
     { url: '/demo/loader', title: 'http请求结果动画' },
     { url: '/demo/echart', title: 'echart图表的使用' },
     { url: '/all-page/console-menu', title: '固定侧边折叠导航栏' },
-    { url: '/all-page/error404', title: '好看的 404 错误页' },
     { url: '/all-page/begin-ui', title: 'angular 项目开始前的UI' },
     { url: '/all-page/route-loading', title: '路由跳转进度条（页面跳转可见）' },
     { url: '/all-page/textarea-autosize', title: 'textarea高度自适应' }

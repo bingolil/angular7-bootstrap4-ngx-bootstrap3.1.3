@@ -7,7 +7,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 import { DemoRoutingModule } from './demo-routing.module';
-import { TableComponent } from './table/table.component';
 import { LayoutComponent } from './layout/layout.component';
 import { RollingMonitorComponent } from './rolling-monitor/rolling-monitor.component';
 import { CurrentModule } from '../current/current.module';
@@ -23,7 +22,6 @@ import { DemoTableComponent } from './demo-table/demo-table.component';
 
 @NgModule({
   declarations: [
-    TableComponent,
     LayoutComponent,
     RollingMonitorComponent,
     TableDescComponent,

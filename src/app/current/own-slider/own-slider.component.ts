@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 declare var $: any;
-import * as _ from 'lodash';
 
 @Component({
   selector: 'app-own-slider',
@@ -33,12 +32,9 @@ export class OwnSliderComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    _.forEach(changes, ele => {
-      if (!ele.firstChange) {
-        this.resetBootSilde();
-        return;
-      }
-    });
+    if (!!changes.value && !changes.value.firstChange) {
+      this.resetBootSilde();
+    }
   }
 
   resetBootSilde() {
