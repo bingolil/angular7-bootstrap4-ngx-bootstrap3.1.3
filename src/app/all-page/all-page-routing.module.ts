@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ConsoleMenuComponent } from './console-menu/console-menu.component';
 import { RouteLoadingComponent } from './route-loading/route-loading.component';
 import { TextareaAutosizeComponent } from './textarea-autosize/textarea-autosize.component';
+import { DemoFormComponent } from './demo-form/demo-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'console-menu', pathMatch: 'full' },
   { path: 'console-menu', component: ConsoleMenuComponent },
   { path: 'route-loading', component: RouteLoadingComponent },
+  { path: 'form', component: DemoFormComponent },
   { path: 'textarea-autosize', component: TextareaAutosizeComponent }
 
 ];
