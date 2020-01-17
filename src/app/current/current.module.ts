@@ -4,8 +4,10 @@ import { OwnScrollComponent } from './own-scroll/own-scroll.component';
 import { OwnSliderComponent } from './own-slider/own-slider.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
 import { NgxTableComponent } from './ngx-table/ngx-table.component';
-import { AngularResizedEventModule } from 'angular-resize-event';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize';
+import { ObserversModule } from '@angular/cdk/observers';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
   ],
   imports: [
     CommonModule,
-    AngularResizedEventModule
+    ReactiveFormsModule,
+    AutosizeModule,
+    ObserversModule
   ],
   exports: [
     OwnScrollComponent,

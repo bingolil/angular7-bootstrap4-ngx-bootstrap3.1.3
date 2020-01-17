@@ -1,6 +1,8 @@
 <div [ngClass]="{'overflowYAuto':yOverflowAuto}" class="data-table-wrap mb-2">
-    <table #headTable class="table table-bordered mb-0 bg-white head-table"></table>
-    <table #dataTable (resized)="onResized($event)" class="data-table table table-bordered mb-0">
+    <table #headTable class="table table-bordered mb-0 bg-white head-table">
+    </table>
+    <table #dataTable cdkObserveContent (cdkObserveContent)="onContentChange()"
+        class="data-table table table-bordered mb-0">
         <ng-content select="thead"></ng-content>
         <ng-content select="tbody"></ng-content>
     </table>
@@ -41,3 +43,4 @@
         </ul>
     </span>
 </div>
+<!-- https://www.npmjs.com/package/@angular/cdk -->

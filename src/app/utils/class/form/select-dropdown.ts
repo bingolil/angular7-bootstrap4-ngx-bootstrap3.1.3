@@ -5,7 +5,7 @@ export class SelectDropdown extends BaseControl<string> {
   /** 控件类型 */
   controlType = 'selectDropdown';
   /** 下拉框的值 */
-  options: { key: string, vlaue: string }[] = [];
+  options: { label: string, vlaue: string }[] = [];
 
   constructor(options: {} = {}) {
     super(options);

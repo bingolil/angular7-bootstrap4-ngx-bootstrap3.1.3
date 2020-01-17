@@ -6,8 +6,14 @@ export class TextArea extends BaseControl<string> {
   controlType = 'textarea';
   /*** 最低行高 */
   minRows: number;
+  /** 默认值为'' */
+  value = '';
+  /** 只读 */
+  readonly: boolean;
+
   constructor(options: {} = {}) {
     super(options);
     this.minRows = options['minRow'] || 3;
+    this.readonly = !!options['readonly'];
   }
 }

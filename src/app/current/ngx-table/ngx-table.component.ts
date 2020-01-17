@@ -6,7 +6,6 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { ResizedEvent } from 'angular-resize-event';
 
 @Component({
   selector: 'app-ngx-table',
@@ -79,18 +78,21 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       if (!changes.total.firstChange) {
         this.setPageList();
       }
+      return;
     }
     if (!!changes.pageSize) {
       if (!changes.pageSize.firstChange) {
         this.pageSize = changes.pageSize.currentValue;
         this.setPageList();
       }
+      return;
     }
     if (!!changes.pageIndex) {
       if (!changes.pageIndex.firstChange) {
         this.pageIndex = changes.pageIndex.currentValue;
         this.setPageList();
       }
+      return;
     }
   }
 
@@ -104,8 +106,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       this.render.setStyle(this.dataTable.nativeElement.parentNode, 'max-height', this.maxHeight + 'px');
     }
 
-    this.setTableUI();
-
     /**
      * 监听滚动条
      */
@@ -114,11 +114,12 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     });
   }
 
-  onResized(event: ResizedEvent) {
+  /**
+   * ng-content发生变化时调用
+   * @param event MutationRecord 变化的内容（ui中为$event）
+   */
+  onContentChange() {
     this.setTableUI();
-  }
-
-  testFun() {
   }
 
   /**
@@ -146,6 +147,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         }
       }
       letfWidthValue += dataThListDom[i].offsetWidth;
+
     }
 
     // 添加css类，固定右边的列
@@ -169,22 +171,27 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     // 克隆dataTable的头部DOM
     const cacheTheadNode = this.dataTable.nativeElement.querySelector('thead').cloneNode(true);
 
+    const headTableHead = this.headTable.nativeElement.querySelector('thead');
+    if (!!headTableHead) {
+      this.render.removeChild(this.headTable.nativeElement, headTableHead);
+    } // 每次都appendChild 因为stick的leift的值可能不一样
+    console.log(this.headTable.nativeElement);
     const cacheTHList = cacheTheadNode.querySelector('tr').children;
     // 固定headTable th的长度 table-layout:fixed
     for (let hh = 0; hh < cacheTHList.length; hh++) {
       this.render.setStyle(cacheTHList[hh], 'width', tableTdListWidth[hh] + 'px');
     }
-    // 获取headTable的头部，判断是否有DOM
-    const headTableHead = this.headTable.nativeElement.querySelector('thead');
-    if (!!headTableHead) {
-      this.render.removeChild(this.headTable.nativeElement, headTableHead);
-    } // 每次都appendChild 因为stick的leift的值可能不一样
+    // this.render.removeChild(this.headTable.nativeElement, this.headTable.nativeElement.querySelector('thead'));
+
+    // // 获取headTable的头部，判断是否有DOM
+    // const headTableHead = this.headTable.nativeElement.querySelector('thead');
+    // if (!!headTableHead) {
+    //   this.render.removeChild(this.headTable.nativeElement, headTableHead);
+    // } // 每次都appendChild 因为stick的leift的值可能不一样
     this.render.appendChild(this.headTable.nativeElement, cacheTheadNode);
     // dataTable采用margin-top:-xxx隐藏掉头部，使用theadTable代替头部
     this.render.setStyle(this.dataTable.nativeElement, 'margin-top', -dataThListDom[0].offsetHeight + 'px');
-    setTimeout(() => {
-      this.setTableBoxShow();
-    }, 0);
+    this.setTableBoxShow();
   }
 
   /**
@@ -309,18 +316,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         this.footerNumList = [lastPage - 4, lastPage - 3, lastPage - 2, lastPage - 1, lastPage];
       }
     }
-
-    setTimeout(() => {
-      this.setTableUI();
-    }, 0);
-    // this.setTableUI();
-
-    /**
-     * js是单线程的，浏览器内核是多线程的
-     * 一个浏览器至少有3个线程（js引擎线程，GUI渲染线程，浏览器事件触发线程）
-     * js引擎基于事件驱动单线程执行的，js一直等待任务队列中任务的到来，然后加以处理，浏览器不管什么时候都只有一个js程序在运行
-     * GUI渲染线程负责渲染浏览器页面，GUI线程于js引擎互斥。js引擎执行时GUI被挂起，GUI更新后被保存到队列中，js空闲时执行
-     */
   }
 
 }

@@ -27,3 +27,58 @@ table.head-table {
 #table-footer-extend .page-link:focus {
     box-shadow: none !important;
 }
+
+:host /deep/ div.data-table-wrap table {
+    border: 0px;
+}
+
+:host /deep/ div.data-table-wrap table th {
+    border-bottom-width: 1px;
+    background-color: #f1f1f1;
+}
+
+:host /deep/ div.data-table-wrap table th,
+:host /deep/ div.data-table-wrap table td {
+    white-space: pre;
+    padding: 8px 12px;
+}
+
+:host /deep/ div.data-table-wrap table tr th.sticky,
+:host /deep/ div.data-table-wrap table tr td.sticky {
+    position: -webkit-sticky!important;
+    position: sticky!important;
+    z-index: 1;
+}
+
+:host /deep/ div.data-table-wrap table tr td.sticky {
+    background: white;
+}
+
+:host /deep/ div.data-table-wrap table tr th.left-box-show,
+:host /deep/ div.data-table-wrap table tr td.left-box-show {
+    box-shadow: 6px 0px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+:host /deep/ div.data-table-wrap table tr th.right-box-show,
+:host /deep/ div.data-table-wrap table tr td.right-box-show {
+    box-shadow: -6px 0px 6px 0px rgba(0, 0, 0, .1);
+}
+
+:host /deep/ div.data-table-wrap table tr th.border-left-box-show,
+:host /deep/ div.data-table-wrap table tr td.border-left-box-show {
+    box-shadow: 1px 0px 0px 0px #dee2e6;
+}
+
+:host /deep/ div.data-table-wrap table tr th.border-right-box-show,
+:host /deep/ div.data-table-wrap table tr td.border-right-box-show {
+    box-shadow: -1px 0px 1px -1px #dee2e6;
+}
+
+:host /deep/ div.data-table-wrap table td {
+    padding: 8px;
+}
+
+:host /deep/ div.data-table-wrap table tr td:first-child,
+:host /deep/ div.data-table-wrap table tr th:first-child {
+    border-left: 0px;
+}

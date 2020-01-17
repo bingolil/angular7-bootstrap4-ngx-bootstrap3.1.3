@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BaseControl } from 'src/app/utils/class/form/base-control';
 
@@ -11,8 +11,8 @@ export class DynamicFormComponent implements OnInit {
   // 动态表单
   /** 表单对象 */
   @Input() controls: BaseControl<any>[] = [];
-  /** 表单样式类 */
-  @Input() formCssCalss = 'form-inline';
+  /** 向父组件发送表单值 */
+  @Output() emitFormValue = new EventEmitter();
   /** ui页面绑定的表单 */
   form: FormGroup;
 
@@ -22,19 +22,19 @@ export class DynamicFormComponent implements OnInit {
     this.toFromGrop();
   }
 
-  /** 将控件写入动态表单 */
+  /** 将控件写入表单 */
   toFromGrop() {
     const group: any = {};
     this.controls.forEach(control => {
       group[control.key] = control.required ?
-        new FormControl(control.value || '', Validators.required) :
-        new FormControl(control.value);
+        new FormControl({ value: control.value || '', disabled: !!control.disabled }, Validators.required) :
+        new FormControl({ value: control.value, disabled: !!control.disabled });
     });
     this.form = new FormGroup(group);
   }
 
   onSubmit() {
-
+    this.emitFormValue.emit(this.form.value);
   }
 
 }
