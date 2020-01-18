@@ -11,7 +11,7 @@ export class IndexComponent implements OnInit {
 
   demoItems = [
     { url: '/demo/rolling-monitor', title: '滚动监听' },
-    { url: '/demo/table', title: '表格分页' },
+    { url: '/demo/table', title: '自定义表格分页' },
     { url: '/all-page/form', title: '动态表单' },
     { url: '/demo/tooltip', title: 'button disalbed时tooltip' },
     { url: '/demo/boot-slider', title: '滑动条' },

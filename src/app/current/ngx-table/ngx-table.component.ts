@@ -14,8 +14,6 @@ import { fromEvent } from 'rxjs';
 })
 export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
 
-  /** 存在数据时，重写头部的表格 */
-  @ViewChild('headTable', { static: false }) headTable: ElementRef;
   /** 展示数据的表格 */
   @ViewChild('dataTable', { static: false }) dataTable: ElementRef;
 
@@ -104,6 +102,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
      */
     if (!!this.maxHeight) {
       this.render.setStyle(this.dataTable.nativeElement.parentNode, 'max-height', this.maxHeight + 'px');
+      this.render.addClass(this.dataTable.nativeElement.querySelector('thead'), 'fixed-head');
     }
 
     /**
@@ -112,6 +111,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     fromEvent(this.dataTable.nativeElement.parentNode, 'scroll').subscribe(() => {
       this.setTableBoxShow();
     });
+    this.setTableUI();
   }
 
   /**
@@ -132,14 +132,18 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
 
     /** dataTable中头部的th列表DOM */
     const dataThListDom = this.dataTable.nativeElement.querySelector('thead tr').children;
+    if (!!this.maxHeight) {
+      for (const ele of dataThListDom) {
+        this.render.setStyle(ele, 'z-index', 99);
+      }
+    }
     /** dataTable中tbody下的tr列表DOM */
     const dataTrListDom = this.dataTable.nativeElement.querySelector('tbody').children;
-
-    const tableTdListWidth: number[] = [];
     // 添加css类，固定左边的列
     for (let i = 0; i < this.fixLeftNum; i++) {
       this.render.addClass(dataThListDom[i], 'sticky');
       this.render.setStyle(dataThListDom[i], 'left', letfWidthValue + 'px');
+      this.render.setStyle(dataThListDom[i], 'z-index', 100);
       if (!!this.total) { // 若存在数据
         for (const ele of dataTrListDom) {
           this.render.addClass(ele.children[i], 'sticky');
@@ -147,7 +151,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         }
       }
       letfWidthValue += dataThListDom[i].offsetWidth;
-
     }
 
     // 添加css类，固定右边的列
@@ -159,38 +162,10 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         this.render.addClass(ele.children[dataThListDom.length - 1 - kk], 'sticky');
         this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'right', rightWidthValue + 'px');
         // 设置z-index，覆盖掉默认的z-index，让右边只展示一个阴影
-        this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'z-index', kk + 1);
+        // this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'z-index', kk + 1);
       }
       rightWidthValue += dataThListDom[dataThListDom.length - 1 - kk].offsetWidth;
     }
-
-    for (const thEle of dataThListDom) {
-      tableTdListWidth.push(thEle.offsetWidth);
-    }
-
-    // 克隆dataTable的头部DOM
-    const cacheTheadNode = this.dataTable.nativeElement.querySelector('thead').cloneNode(true);
-
-    const headTableHead = this.headTable.nativeElement.querySelector('thead');
-    if (!!headTableHead) {
-      this.render.removeChild(this.headTable.nativeElement, headTableHead);
-    } // 每次都appendChild 因为stick的leift的值可能不一样
-    console.log(this.headTable.nativeElement);
-    const cacheTHList = cacheTheadNode.querySelector('tr').children;
-    // 固定headTable th的长度 table-layout:fixed
-    for (let hh = 0; hh < cacheTHList.length; hh++) {
-      this.render.setStyle(cacheTHList[hh], 'width', tableTdListWidth[hh] + 'px');
-    }
-    // this.render.removeChild(this.headTable.nativeElement, this.headTable.nativeElement.querySelector('thead'));
-
-    // // 获取headTable的头部，判断是否有DOM
-    // const headTableHead = this.headTable.nativeElement.querySelector('thead');
-    // if (!!headTableHead) {
-    //   this.render.removeChild(this.headTable.nativeElement, headTableHead);
-    // } // 每次都appendChild 因为stick的leift的值可能不一样
-    this.render.appendChild(this.headTable.nativeElement, cacheTheadNode);
-    // dataTable采用margin-top:-xxx隐藏掉头部，使用theadTable代替头部
-    this.render.setStyle(this.dataTable.nativeElement, 'margin-top', -dataThListDom[0].offsetHeight + 'px');
     this.setTableBoxShow();
   }
 
@@ -198,17 +173,17 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
    * 设置阴影部分
   */
   setTableBoxShow() {
-    /** headTable中头部的th列表DOM */
-    const headThListDom = this.headTable.nativeElement.querySelector('thead tr').children;
+    /** dadtaTable中头部的th列表DOM */
+    const dadtaThListDom = this.dataTable.nativeElement.querySelector('thead tr').children;
     /** dataTable中tbody下的tr列表DOM */
     const dataTrListDom = this.dataTable.nativeElement.querySelector('tbody').children;
     /** 处理左边阴影 */
     if (this.dataTable.nativeElement.parentNode.scrollLeft > 0) {
       for (let i = 0; i < this.fixLeftNum; i++) {
         if (i < this.fixLeftNum - 1) {
-          this.render.addClass(headThListDom[i], 'border-left-box-show');
+          this.render.addClass(dadtaThListDom[i], 'border-left-box-show');
         } else {
-          this.render.addClass(headThListDom[i], 'left-box-show');
+          this.render.addClass(dadtaThListDom[i], 'left-box-show');
         }
         if (!!this.total) {
           for (const ele of dataTrListDom) {
@@ -222,7 +197,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       }
     } else {
       for (let i = 0; i < this.fixLeftNum; i++) {
-        this.render.removeClass(headThListDom[i], 'left-box-show');
+        this.render.removeClass(dadtaThListDom[i], 'left-box-show');
         if (!!this.total) {
           for (const ele of dataTrListDom) {
             this.render.removeClass(ele.children[i], 'left-box-show');
@@ -238,26 +213,26 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       > this.dataTable.nativeElement.offsetWidth - 1
     ) { // 横向滚动条滚动到最右边
       for (let kk = 0; kk < this.fixRightNum; kk++) {
-        this.render.removeClass(headThListDom[headThListDom.length - 1 - kk], 'right-box-show');
+        this.render.removeClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'right-box-show');
         if (!!this.total) {
           for (const ele of dataTrListDom) {
-            this.render.removeClass(ele.children[headThListDom.length - 1 - kk], 'right-box-show');
+            this.render.removeClass(ele.children[dadtaThListDom.length - 1 - kk], 'right-box-show');
           }
         }
       }
     } else {
       for (let kk = 0; kk < this.fixRightNum; kk++) {
         if (kk < this.fixRightNum - 1) {
-          this.render.addClass(headThListDom[headThListDom.length - 1 - kk], 'border-right-box-show');
+          this.render.addClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'border-right-box-show');
         } else {
-          this.render.addClass(headThListDom[headThListDom.length - 1 - kk], 'right-box-show');
+          this.render.addClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'right-box-show');
         }
         if (!!dataTrListDom.length) {
           for (const ele of dataTrListDom) {
             if (kk < this.fixRightNum - 1) {
-              this.render.addClass(ele.children[headThListDom.length - 1 - kk], 'border-right-box-show');
+              this.render.addClass(ele.children[dadtaThListDom.length - 1 - kk], 'border-right-box-show');
             } else {
-              this.render.addClass(ele.children[headThListDom.length - 1 - kk], 'right-box-show');
+              this.render.addClass(ele.children[dadtaThListDom.length - 1 - kk], 'right-box-show');
             }
           }
         }

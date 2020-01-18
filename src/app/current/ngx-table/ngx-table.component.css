@@ -7,14 +7,6 @@ div.overflowYAuto {
     overflow-y: auto;
 }
 
-table.head-table {
-    table-layout: fixed;
-    position: -webkit-sticky!important;
-    position: sticky!important;
-    z-index: 100;
-    top: 0;
-}
-
 #table-footer-extend div.dropdown-menu.show {
     min-width: 100% !important;
 }
@@ -37,6 +29,13 @@ table.head-table {
     background-color: #f1f1f1;
 }
 
+:host /deep/ div.data-table-wrap table thead.fixed-head tr th{
+    position: -webkit-sticky!important;
+    position: sticky!important;
+    top: 0;
+    box-shadow: 0px -1px 0px 0px  #dee2e6;
+}
+
 :host /deep/ div.data-table-wrap table th,
 :host /deep/ div.data-table-wrap table td {
     white-space: pre;
@@ -56,22 +55,22 @@ table.head-table {
 
 :host /deep/ div.data-table-wrap table tr th.left-box-show,
 :host /deep/ div.data-table-wrap table tr td.left-box-show {
-    box-shadow: 6px 0px 6px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 0px 6px 0px rgba(0, 0, 0, 0.1)!important;
 }
 
 :host /deep/ div.data-table-wrap table tr th.right-box-show,
 :host /deep/ div.data-table-wrap table tr td.right-box-show {
-    box-shadow: -6px 0px 6px 0px rgba(0, 0, 0, .1);
+    box-shadow: -6px 0px 6px 0px rgba(0, 0, 0, .1)!important;
 }
 
 :host /deep/ div.data-table-wrap table tr th.border-left-box-show,
 :host /deep/ div.data-table-wrap table tr td.border-left-box-show {
-    box-shadow: 1px 0px 0px 0px #dee2e6;
+    box-shadow: 1px 0px 0px 0px #dee2e6!important;
 }
 
 :host /deep/ div.data-table-wrap table tr th.border-right-box-show,
 :host /deep/ div.data-table-wrap table tr td.border-right-box-show {
-    box-shadow: -1px 0px 1px -1px #dee2e6;
+    box-shadow: -1px 0px 0px 0px #dee2e6!important;
 }
 
 :host /deep/ div.data-table-wrap table td {
