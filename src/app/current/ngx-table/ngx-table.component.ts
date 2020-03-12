@@ -161,8 +161,6 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       for (const ele of dataTrListDom) {
         this.render.addClass(ele.children[dataThListDom.length - 1 - kk], 'sticky');
         this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'right', rightWidthValue + 'px');
-        // 设置z-index，覆盖掉默认的z-index，让右边只展示一个阴影
-        // this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'z-index', kk + 1);
       }
       rightWidthValue += dataThListDom[dataThListDom.length - 1 - kk].offsetWidth;
     }
@@ -178,62 +176,42 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     /** dataTable中tbody下的tr列表DOM */
     const dataTrListDom = this.dataTable.nativeElement.querySelector('tbody').children;
     /** 处理左边阴影 */
-    if (this.dataTable.nativeElement.parentNode.scrollLeft > 0) {
-      for (let i = 0; i < this.fixLeftNum; i++) {
-        if (i < this.fixLeftNum - 1) {
-          this.render.addClass(dadtaThListDom[i], 'border-left-box-show');
-        } else {
-          this.render.addClass(dadtaThListDom[i], 'left-box-show');
-        }
+    if (this.fixLeftNum > 0) { // 左边存在固定列
+      if (this.dataTable.nativeElement.parentNode.scrollLeft > 0) {
+        this.render.addClass(dadtaThListDom[this.fixLeftNum - 1], 'left-box-show');
         if (!!this.total) {
           for (const ele of dataTrListDom) {
-            if (i < this.fixLeftNum - 1) {
-              this.render.addClass(ele.children[i], 'border-left-box-show');
-            } else {
-              this.render.addClass(ele.children[i], 'left-box-show');
-            }
+            this.render.addClass(ele.children[this.fixLeftNum - 1], 'left-box-show');
           }
         }
-      }
-    } else {
-      for (let i = 0; i < this.fixLeftNum; i++) {
-        this.render.removeClass(dadtaThListDom[i], 'left-box-show');
+      } else {
+        this.render.removeClass(dadtaThListDom[this.fixLeftNum - 1], 'left-box-show');
         if (!!this.total) {
           for (const ele of dataTrListDom) {
-            this.render.removeClass(ele.children[i], 'left-box-show');
+            this.render.removeClass(ele.children[this.fixLeftNum - 1], 'left-box-show');
           }
         }
       }
     }
 
     /** 处理右边阴影 */
-    if (
-      this.dataTable.nativeElement.parentNode.offsetWidth
-      + this.dataTable.nativeElement.parentNode.scrollLeft
-      > this.dataTable.nativeElement.offsetWidth - 1
-    ) { // 横向滚动条滚动到最右边
-      for (let kk = 0; kk < this.fixRightNum; kk++) {
-        this.render.removeClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'right-box-show');
+    if (this.fixRightNum > 0) { // 右边存在固定列
+      if (
+        this.dataTable.nativeElement.parentNode.offsetWidth
+        + this.dataTable.nativeElement.parentNode.scrollLeft
+        > this.dataTable.nativeElement.offsetWidth - 1
+      ) { // 横向滚动条滚动到最右边
+        this.render.removeClass(dadtaThListDom[dadtaThListDom.length - this.fixRightNum], 'right-box-show');
         if (!!this.total) {
           for (const ele of dataTrListDom) {
-            this.render.removeClass(ele.children[dadtaThListDom.length - 1 - kk], 'right-box-show');
+            this.render.removeClass(ele.children[dadtaThListDom.length - this.fixRightNum], 'right-box-show');
           }
         }
-      }
-    } else {
-      for (let kk = 0; kk < this.fixRightNum; kk++) {
-        if (kk < this.fixRightNum - 1) {
-          this.render.addClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'border-right-box-show');
-        } else {
-          this.render.addClass(dadtaThListDom[dadtaThListDom.length - 1 - kk], 'right-box-show');
-        }
-        if (!!dataTrListDom.length) {
+      } else {
+        this.render.addClass(dadtaThListDom[dadtaThListDom.length - this.fixRightNum], 'right-box-show');
+        if (!!this.total) {
           for (const ele of dataTrListDom) {
-            if (kk < this.fixRightNum - 1) {
-              this.render.addClass(ele.children[dadtaThListDom.length - 1 - kk], 'border-right-box-show');
-            } else {
-              this.render.addClass(ele.children[dadtaThListDom.length - 1 - kk], 'right-box-show');
-            }
+            this.render.addClass(ele.children[dadtaThListDom.length - this.fixRightNum], 'right-box-show');
           }
         }
       }

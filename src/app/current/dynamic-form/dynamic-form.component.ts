@@ -7,8 +7,8 @@ import { BaseControl } from 'src/app/utils/class/form/base-control';
   templateUrl: './dynamic-form.component.html',
   styleUrls: ['./dynamic-form.component.css']
 })
-export class DynamicFormComponent implements OnInit {
-  // 动态表单
+export class DynamicFormComponent implements OnInit { // 动态表单
+
   /** 表单对象 */
   @Input() controls: BaseControl<any>[] = [];
   /** 向父组件发送表单值 */

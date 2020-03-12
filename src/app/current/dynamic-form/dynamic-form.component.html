@@ -1,43 +1,43 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <ng-container *ngFor="let item of controls">
-        <div class="form-group row" [ngSwitch]="item.controlType">
-            <!-- input文本输入框 -->
-            <ng-container *ngSwitchCase="'inputText'">
-                <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
-                <div class="col-md-6">
-                    <input class="form-control" type="text" [readonly]="item.readonly" [value]="item.value"
-                        [formControlName]="item.key" [placeholder]="item.placeholder">
-                </div>
-            </ng-container>
-            <!-- textarea多行文本输入框 -->
-            <ng-container *ngSwitchCase="'textarea'">
-                <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
-                <div class="col-md-6">
-                    <textarea autosize class="form-control" [readonly]="item.readonly" [value]="item.value"
-                        [formControlName]="item.key" [rows]="item.minRows" [placeholder]="item.placeholder"></textarea>
-                </div>
-            </ng-container>
-            <!-- select下拉框 -->
-            <ng-container *ngSwitchCase="'selectDropdown'">
-                <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
-                <div class="col-md-6">
-                    <select class="form-control" [formControlName]="item.key">
-                        <option *ngFor="let option of item.options" [value]="option.value">{{option.label}}</option>
-                    </select>
-                </div>
-            </ng-container>
-            <!-- 单选组 -->
-            <ng-container *ngSwitchCase="'radioGroup'">
-                <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
-                <div class="col-md-6">
-                    <div *ngFor="let rad of item.radioList" class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" [id]="rad.label" [formControlName]="item.key" [value]="rad.value"
-                            class="custom-control-input">
-                        <label class="custom-control-label" [for]="rad.label">{{rad.label}}</label>
-                    </div>
-                </div>
-            </ng-container>
+  <ng-container *ngFor="let item of controls">
+    <div class="form-group row" [ngSwitch]="item.controlType">
+      <!-- input文本输入框 -->
+      <ng-container *ngSwitchCase="'inputText'">
+        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
+        <div class="col-md-6">
+          <input class="form-control" type="text" [readonly]="item.readonly" [value]="item.value"
+            [formControlName]="item.key" [placeholder]="item.placeholder">
         </div>
-    </ng-container>
-    <button class="btn btn-success" type="submit">提交</button>
+      </ng-container>
+      <!-- select下拉框 -->
+      <ng-container *ngSwitchCase="'selectDropdown'">
+        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
+        <div class="col-md-6">
+          <select class="form-control" [formControlName]="item.key">
+            <option *ngFor="let option of item.options" [value]="option.value">{{option.label}}</option>
+          </select>
+        </div>
+      </ng-container>
+      <!-- 单选组 -->
+      <ng-container *ngSwitchCase="'radioGroup'">
+        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
+        <div class="col-md-6">
+          <div *ngFor="let rad of item.radioList" class="custom-control custom-radio custom-control-inline">
+            <input type="radio" [id]="rad.label" [formControlName]="item.key" [value]="rad.value"
+              class="custom-control-input">
+            <label class="custom-control-label" [for]="rad.label">{{rad.label}}</label>
+          </div>
+        </div>
+      </ng-container>
+      <!-- textarea多行文本输入框 -->
+      <ng-container *ngSwitchCase="'textarea'">
+        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
+        <div class="col-md-6">
+          <textarea autosize class="form-control" [readonly]="item.readonly" [value]="item.value"
+            [formControlName]="item.key" [rows]="item.minRows" [placeholder]="item.placeholder"></textarea>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <button class="btn btn-success" type="submit">提交</button>
 </form>

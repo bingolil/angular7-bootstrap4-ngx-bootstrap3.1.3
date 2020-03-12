@@ -1,6 +1,6 @@
 <div [ngClass]="{'overflowYAuto':yOverflowAuto}" class="data-table-wrap mb-2">
     <table #dataTable cdkObserveContent (cdkObserveContent)="onContentChange()"
-        class="data-table table table-bordered mb-0">
+        class="data-table mb-0">
         <ng-content select="thead"></ng-content>
         <ng-content select="tbody"></ng-content>
     </table>
