@@ -29,7 +29,6 @@ div.overflowYAuto {
 }
 
 :host /deep/ div.data-table-wrap table th {
-    border-bottom-width: 1px;
     background-color: #f1f1f1;
 }
 
@@ -65,11 +64,11 @@ div.overflowYAuto {
 
 :host /deep/ div.data-table-wrap table tr th.left-box-show,
 :host /deep/ div.data-table-wrap table tr td.left-box-show {
-    box-shadow: 6px 0px 6px 0px rgba(0, 0, 0, 0.1)!important;
+    box-shadow: 6px 0px 6px 0px rgba(0, 0, 0, 0.05)!important;
     border-right: 1px solid #dee2e6;
 }
 
 :host /deep/ div.data-table-wrap table tr th.right-box-show,
 :host /deep/ div.data-table-wrap table tr td.right-box-show {
-    box-shadow: -6px 0px 6px 0px rgba(0, 0, 0, .1)!important;
+    box-shadow: -6px 0px 6px 0px rgba(0, 0, 0, .05)!important;
 }

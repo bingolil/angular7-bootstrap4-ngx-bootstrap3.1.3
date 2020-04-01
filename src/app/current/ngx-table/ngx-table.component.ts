@@ -97,17 +97,14 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
   ngAfterViewInit(): void {
     // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     // Add 'implements AfterViewInit' to the class.
-    /**
-     * 存在表格的最大高度时，处理css加入最大高度样式
-     */
+
+    // 存在表格的最大高度时，处理css加入最大高度样式
     if (!!this.maxHeight) {
       this.render.setStyle(this.dataTable.nativeElement.parentNode, 'max-height', this.maxHeight + 'px');
       this.render.addClass(this.dataTable.nativeElement.querySelector('thead'), 'fixed-head');
     }
 
-    /**
-     * 监听滚动条
-     */
+    // 监听滚动条
     fromEvent(this.dataTable.nativeElement.parentNode, 'scroll').subscribe(() => {
       this.setTableBoxShow();
     });
@@ -122,10 +119,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
     this.setTableUI();
   }
 
-  /**
-  * stick 布局，兼容了relative和absolute
-  * 进行页面布局
-  */
+  /** stick 布局，兼容了relative和absolute 进行页面布局 */
   setTableUI() {
     let letfWidthValue = 0;
     let rightWidthValue = 0;
@@ -137,7 +131,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         this.render.setStyle(ele, 'z-index', 99);
       }
     }
-    /** dataTable中tbody下的tr列表DOM */
+    // dataTable中tbody下的tr列表DOM 
     const dataTrListDom = this.dataTable.nativeElement.querySelector('tbody').children;
     // 添加css类，固定左边的列
     for (let i = 0; i < this.fixLeftNum; i++) {
@@ -150,7 +144,7 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
           this.render.setStyle(ele.children[i], 'left', letfWidthValue + 'px');
         }
       }
-      letfWidthValue += dataThListDom[i].offsetWidth;
+      letfWidthValue += dataThListDom[i].getBoundingClientRect().width;
     }
 
     // 添加css类，固定右边的列
@@ -162,20 +156,18 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
         this.render.addClass(ele.children[dataThListDom.length - 1 - kk], 'sticky');
         this.render.setStyle(ele.children[dataThListDom.length - 1 - kk], 'right', rightWidthValue + 'px');
       }
-      rightWidthValue += dataThListDom[dataThListDom.length - 1 - kk].offsetWidth;
+      rightWidthValue += dataThListDom[dataThListDom.length - 1 - kk].getBoundingClientRect().width;
     }
     this.setTableBoxShow();
   }
 
-  /**
-   * 设置阴影部分
-  */
+  /** 设置阴影部分 */
   setTableBoxShow() {
-    /** dadtaTable中头部的th列表DOM */
+    // dadtaTable中头部的th列表DOM 
     const dadtaThListDom = this.dataTable.nativeElement.querySelector('thead tr').children;
     /** dataTable中tbody下的tr列表DOM */
     const dataTrListDom = this.dataTable.nativeElement.querySelector('tbody').children;
-    /** 处理左边阴影 */
+    // 处理左边阴影 
     if (this.fixLeftNum > 0) { // 左边存在固定列
       if (this.dataTable.nativeElement.parentNode.scrollLeft > 0) {
         this.render.addClass(dadtaThListDom[this.fixLeftNum - 1], 'left-box-show');
@@ -194,12 +186,12 @@ export class NgxTableComponent implements OnInit, AfterViewInit, OnChanges {
       }
     }
 
-    /** 处理右边阴影 */
+    // 处理右边阴影
     if (this.fixRightNum > 0) { // 右边存在固定列
       if (
-        this.dataTable.nativeElement.parentNode.offsetWidth
+        this.dataTable.nativeElement.parentNode.getBoundingClientRect().width
         + this.dataTable.nativeElement.parentNode.scrollLeft
-        > this.dataTable.nativeElement.offsetWidth - 1
+        > this.dataTable.nativeElement.getBoundingClientRect().width - 1
       ) { // 横向滚动条滚动到最右边
         this.render.removeClass(dadtaThListDom[dadtaThListDom.length - this.fixRightNum], 'right-box-show');
         if (!!this.total) {
