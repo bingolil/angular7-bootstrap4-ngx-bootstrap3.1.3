@@ -4,6 +4,7 @@ import { InputText } from 'src/app/utils/class/form/input-text';
 import { TextArea } from 'src/app/utils/class/form/text-area';
 import { RadioGroup } from 'src/app/utils/class/form/radio-group';
 import { SelectDropdown } from 'src/app/utils/class/form/select-dropdown';
+import { CheckboxGroup } from 'src/app/utils/class/form/checkbox-group';
 
 @Component({
   selector: 'app-demo-form',
@@ -31,11 +32,22 @@ export class DemoFormComponent implements OnInit {
     }),
     new SelectDropdown({
       label: '学历',
-      value: '',
+      value: '', // 初始值
       key: 'education',
       options: [
         { label: '一本', value: '1' },
         { label: '二本', value: '2' }
+      ]
+    }),
+    new CheckboxGroup({
+      label: '天赋',
+      value: ['swin'],
+      key: 'talent',
+      ngxDisplay: 'label',
+      ngxValue: 'value',
+      checkboxList: [
+        { label: '游泳', value: 'swin' },
+        { label: '画画', value: 'draw' }
       ]
     }),
     new TextArea({

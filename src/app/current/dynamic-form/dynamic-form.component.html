@@ -1,9 +1,9 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="form">
   <ng-container *ngFor="let item of controls">
     <div class="form-group row" [ngSwitch]="item.controlType">
+      <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
       <!-- input文本输入框 -->
       <ng-container *ngSwitchCase="'inputText'">
-        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
         <div class="col-md-6">
           <input class="form-control" type="text" [readonly]="item.readonly" [value]="item.value"
             [formControlName]="item.key" [placeholder]="item.placeholder">
@@ -11,7 +11,6 @@
       </ng-container>
       <!-- select下拉框 -->
       <ng-container *ngSwitchCase="'selectDropdown'">
-        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
         <div class="col-md-6">
           <select class="form-control" [formControlName]="item.key">
             <option *ngFor="let option of item.options" [value]="option.value">{{option.label}}</option>
@@ -20,8 +19,7 @@
       </ng-container>
       <!-- 单选组 -->
       <ng-container *ngSwitchCase="'radioGroup'">
-        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
-        <div class="col-md-6">
+        <div class="col-md-6" style="display: flex;align-items: center;">
           <div *ngFor="let rad of item.radioList" class="custom-control custom-radio custom-control-inline">
             <input type="radio" [id]="rad.label" [formControlName]="item.key" [value]="rad.value"
               class="custom-control-input">
@@ -29,9 +27,16 @@
           </div>
         </div>
       </ng-container>
+      <!-- 多选组checkbox -->
+      <ng-container *ngSwitchCase="'checkboxGroup'">
+        <div class="col-md-6" style="display: flex;align-items: center;">
+          <app-ngx-checkbox-group [formControlName]="item.key" [ngxValue]="item.ngxValue" [ngxDisplay]="item.ngxDisplay"
+            [checkboxList]="item.checkboxList">
+          </app-ngx-checkbox-group>
+        </div>
+      </ng-container>
       <!-- textarea多行文本输入框 -->
       <ng-container *ngSwitchCase="'textarea'">
-        <label for="{{item.label}}" class="col-md-2 col-form-label">{{item.label}}</label>
         <div class="col-md-6">
           <textarea autosize class="form-control" [readonly]="item.readonly" [value]="item.value"
             [formControlName]="item.key" [rows]="item.minRows" [placeholder]="item.placeholder"></textarea>

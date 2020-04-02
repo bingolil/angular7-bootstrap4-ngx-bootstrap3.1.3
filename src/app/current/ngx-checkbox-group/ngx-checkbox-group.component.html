@@ -1,0 +1,6 @@
+<div *ngFor="let item of checkboxList;let i=index;" class="custom-control custom-checkbox custom-control-inline">
+  <input type="checkbox" [checked]="checkedInfo[i]" (change)="changeItem($event,i)"
+    [id]="!!ngxDisplay ? item[ngxDisplay] : item" class="custom-control-input">
+  <label class="custom-control-label"
+    [for]="!!ngxDisplay ? item[ngxDisplay] : item">{{!!ngxDisplay ? item[ngxDisplay] : item}}</label>
+</div>

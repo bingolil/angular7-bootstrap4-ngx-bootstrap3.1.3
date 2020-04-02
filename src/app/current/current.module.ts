@@ -5,9 +5,10 @@ import { OwnSliderComponent } from './own-slider/own-slider.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
 import { NgxTableComponent } from './ngx-table/ngx-table.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AutosizeModule } from 'ngx-autosize';
 import { ObserversModule } from '@angular/cdk/observers';
+import { NgxCheckboxGroupComponent } from './ngx-checkbox-group/ngx-checkbox-group.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ObserversModule } from '@angular/cdk/observers';
     OwnSliderComponent,
     LoadingContentComponent,
     NgxTableComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    NgxCheckboxGroupComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { ObserversModule } from '@angular/cdk/observers';
     OwnSliderComponent,
     LoadingContentComponent,
     NgxTableComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    NgxCheckboxGroupComponent
   ],
   entryComponents: [LoadingContentComponent]
 })
