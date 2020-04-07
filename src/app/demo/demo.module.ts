@@ -17,7 +17,6 @@ import { ModalRefComponent } from './modal-ref/modal-ref.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ChartComponent } from './chart/chart.component';
 import { DemoTableComponent } from './demo-table/demo-table.component';
-import { Boot4FormUiComponent } from './boot4-form-ui/boot4-form-ui.component';
 import { LearnRxjsComponent } from './learn-rxjs/learn-rxjs.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { LearnRxjsComponent } from './learn-rxjs/learn-rxjs.component';
     LoaderComponent,
     ChartComponent,
     DemoTableComponent,
-    Boot4FormUiComponent,
     LearnRxjsComponent
   ],
   imports: [

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { mergeMap, catchError } from 'rxjs/operators';
-import * as _ from 'lodash';
 import { ToastrService } from 'ngx-toastr';
 
 import { LoadService } from './load.service';

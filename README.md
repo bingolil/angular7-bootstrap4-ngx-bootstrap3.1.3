@@ -4,7 +4,6 @@
  > * [bootstrap4](https://v4.bootcss.com/)
  > * [bootstrap-slider 10.6.0 滑动条插件](https://seiyria.com/bootstrap-slider/)
  > * [ngx-bootstrap 3.1.3](http://ngx-bootstrap.com/#/)
- > * [lodash 4.17.11 数据处理插件](https://www.lodashjs.com)
  > * [font-Awesome图标库](http://fontawesome.dashgame.com/)
  > * [ngx-toastr 9.1.2 信息提示插件](https://codeseven.github.io/toastr/)
  > * [echarts 4.1.0 图表插件](https://echarts.baidu.com/)

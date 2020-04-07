@@ -9,7 +9,6 @@ import { ModalComponent } from './modal/modal.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ChartComponent } from './chart/chart.component';
 import { DemoTableComponent } from './demo-table/demo-table.component';
-import { Boot4FormUiComponent } from './boot4-form-ui/boot4-form-ui.component';
 import { LearnRxjsComponent } from './learn-rxjs/learn-rxjs.component';
 
 const routes: Routes = [
@@ -22,7 +21,6 @@ const routes: Routes = [
       { path: 'boot-slider', component: BootSliderComponent },
       { path: 'modal', component: ModalComponent },
       { path: 'loader', component: LoaderComponent },
-      { path: 'boot4-form-ui', component: Boot4FormUiComponent },
       { path: 'learn-rxjs', component: LearnRxjsComponent },
       { path: 'echart', component: ChartComponent }
     ]
