@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { mergeMap, catchError } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
 
 import { LoadService } from './load.service';
 
@@ -11,7 +10,9 @@ import { LoadService } from './load.service';
 })
 export class InterceptService implements HttpInterceptor {
 
-  constructor(private loadService: LoadService, private toastrService: ToastrService) { }
+  constructor(
+    private loadService: LoadService
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const _loading_content = req.headers.getAll('loading'); // getAll返回的是一个数组
@@ -33,22 +34,12 @@ export class InterceptService implements HttpInterceptor {
       if (event instanceof HttpResponse) {
         this.loadService.loadEnd();
         if (_loading_content[1]) {
-          this.toastrService.success(_loading_content[1], null, {
-            timeOut: 3000,
-            closeButton: false,
-            positionClass: 'toast-top-right'
-          });
         }
       }
       return of(event);
     }), catchError((res: HttpResponse<any>): Observable<any> => {
       this.loadService.loadEnd();
       if (_loading_content[2]) {
-        this.toastrService.error(_loading_content[2], null, {
-          timeOut: 3000,
-          closeButton: false,
-          positionClass: 'toast-top-right'
-        });
       }
       return of(res);
     }));

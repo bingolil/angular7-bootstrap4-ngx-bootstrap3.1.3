@@ -3,8 +3,6 @@
 @import'~font-awesome/css/font-awesome.css';
 @import'~assets/css/button.css';
 
-/* @import'~ngx-toastr/toastr-bs4-alert'; */
-
 html,
 body {
     height: 100%
@@ -34,7 +32,7 @@ body {
 
 .loading-ui-wrap>div.modal-content {
     position: absolute;
-    top: 50%;
+    top: 40%;
     margin-top: -20px;
 }
 
@@ -43,20 +41,4 @@ body {
 
 .loading-ui-wrap div.modal-content {
     background-color: #f2f2f2;
-}
-
-
-/*信息提示*/
-
-.toast-container {
-    z-index: 1000!important;
-}
-
-.toast-container .toast {
-    padding: 10px 0 10px 50px!important;
-    opacity: 0.9;
-    max-width: 200px;
-    box-sizing: border-box;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .15)!important;
-    overflow: hidden;
 }

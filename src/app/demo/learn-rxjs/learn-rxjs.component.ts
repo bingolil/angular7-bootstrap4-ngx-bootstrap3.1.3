@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearnRxjsComponent implements OnInit {
 
-  constructor() { }
+  public demoData: number[] = [];
+
+  constructor(
+  ) { }
 
   ngOnInit() {
+    for (let i = 0; i < 10000; i++) {
+      this.demoData.push(i);
+    }
   }
 
 }

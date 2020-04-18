@@ -24,15 +24,4 @@
             <button class="btn btn-sm btn-success" (click)="happenHttps()">多个http需要拦截</button>
         </div>
     </div>
-    <hr>
-    <h4>http 拦截结果展示</h4>
-    <p><span class="pl-3 ml-3"></span>http 拦截结果展示是通过 <a class="text-primary" href="https://codeseven.github.io/toastr/">toastr</a> 实现，在 angular 中使用 toastr 时，需要完成以下步骤：</p>
-    <ol>
-        <li class="text-info">npm install ngx-toastr --save</li>
-        <li class="text-info">npm install @angular/animations --save</li>
-        <li class="text-info">在 angular.json 文件下的 styles 属性中引入 "./node_modules/ngx-toastr/toastr.css"</li>
-        <li class="text-info">在根模块中引入 BrowserAnimationsModule 和 ToastrModule，其分别来源于 '@angular/platform-browser/animations' 和 'ngx-toastr'，其中 ToastrModule 需要 forRoot() 一下</li>
-        <li class="text-info">在需要提示信息的地方引入 ToastrService（来源于 'ngx-toastr'），使用该服务的方法展示提示信息</li>
-        <li class="text-info">此时，看不到提示信息，因为此时的提示信息容器的透明度为100%，需要修改一下其透明度，在 style.css 中修改提示容器的样式</li>
-    </ol>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 import { Title } from '@angular/platform-browser';
 
 import { LoadService } from '../../utils/service/load.service';
@@ -20,7 +19,11 @@ export class LoaderComponent implements OnInit {
     }
   };
 
-  constructor(private loadService: LoadService, private http: HttpClient, private toastr: ToastrService, private title: Title) { }
+  constructor(
+    private loadService: LoadService,
+    private http: HttpClient,
+    private title: Title
+  ) { }
 
   ngOnInit() {
     this.title.setTitle('angular http拦截UI结果一条龙');

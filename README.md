@@ -5,7 +5,6 @@
  > * [bootstrap-slider 10.6.0 滑动条插件](https://seiyria.com/bootstrap-slider/)
  > * [ngx-bootstrap 3.1.3](http://ngx-bootstrap.com/#/)
  > * [font-Awesome图标库](http://fontawesome.dashgame.com/)
- > * [ngx-toastr 9.1.2 信息提示插件](https://codeseven.github.io/toastr/)
  > * [echarts 4.1.0 图表插件](https://echarts.baidu.com/)
  > * [ngx-echarts 4.1.0 图表插件](https://www.npmjs.com/package/ngx-echarts)
  > * [@ngx-progressbar/core 5.3.2 加载进度条插件](http://npm.taobao.org/package/ngx-progressbar-rj)
